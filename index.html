@@ -94,9 +94,9 @@ freetrader's blog
         <td class="month-calendar-day-nolink Sunday">18</td>
         <td class="month-calendar-day-nolink Monday">19</td>
         <td class="month-calendar-day-nolink Tuesday">20</td>
-        <td class="month-calendar-day-this-day Wednesday"><a href="./posts/misc/welcome.html" title="welcome">21</a></td>
-        <td class="month-calendar-day-future Thursday">22</td>
-        <td class="month-calendar-day-nolink Friday">23</td>
+        <td class="month-calendar-day-link Wednesday"><a href="./posts/misc/welcome.html" title="welcome">21</a></td>
+        <td class="month-calendar-day-this-day Thursday">22</td>
+        <td class="month-calendar-day-future Friday">23</td>
         <td class="month-calendar-day-nolink Saturday">24</td>
     </tr>
     <tr>
@@ -239,7 +239,7 @@ This prototype is based on Bitcoin Classic v0.12.0cl1 (<a href="https://github.c
 
 <p>In March 2016 I started working on what became HFP0. I had planned to release it alongside satoshisbitcoin as a complementary spin-off which would <em>not</em> change Bitcoin's proof-of-work (POW) function, because I thought it would be worthwhile to offer a true hard fork which the existing miners could still support, if they wanted. The other aim was to familiarize myself with the Bitcoin source code and development process. That's why free software is free and open after all - if you don't like the way things are heading, you can pick up the code, learn about it and implement the features you want.</p>
 
-<p>Even before the Ethereum fork, I discussed the need for protection against replay attacks. The ETH/ETC fork finally convinced me that a serious Bitcoin spin-off attempt would require a robust solution to this problem. Furthermore, any spin-off would require substantial support and engagement from the community to get off the ground. As it happened, members of the community created <a href="/r/btcfork">BTCfork</a>, an organization consisting of Bitcoin users from all walks of life and professional backgrounds, united in their desire to <a href="https://bitcoinforks.org">hard-fork Bitcoin</a> to restore the original vision of Satoshi: <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: a peer-to-peer electronic cash system</a>.</p>
+<p>Even before the Ethereum fork, I discussed the need for protection against replay attacks. The ETH/ETC fork finally convinced me that a serious Bitcoin spin-off attempt would require a robust solution to this problem. Furthermore, any spin-off would require substantial support and engagement from the community to get off the ground. As it happened, members of the community created <a href="https://www.reddit.com/r/btcfork">BTCfork</a>, an organization consisting of Bitcoin users from all walks of life and professional backgrounds, united in their desire to <a href="https://bitcoinforks.org">hard-fork Bitcoin</a> to restore the original vision of Satoshi: <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: a peer-to-peer electronic cash system</a>.</p>
 
 <p>The next two parts of the article will delve into the technical aspects of HFP0. I encourage those who are interested to study and play with HFP0, and use whichever parts of it they see fit for their own hard fork experiments, just as I learned and used code from satoshisbitcoin. There are some additions that may yet be of value, such as the per-block retargeting algorithm (Ray Dillinger's <a href="http://dillingers.com/blog/2015/04/21/altcoin-difficulty-adjustment-with-midas/">MIDAS</a>) and the more 'realistic' implementation of BitPay's adaptive block size algorithm.</p>
 
@@ -463,7 +463,7 @@ They each have advantages/disadvantages, and which way the market decides will p
 
 <p>HFP0 supports both variants through the use of a new configuration parameter: <code>--disable-newpow</code> .</p>
 
-<p>By default, it builds with a modified POW based on Colin Percival's well-known <a href="https://github.com/Tarsnap/scrypt">scrypt</a> algorithm (see also <a href="https://tools.ietf.org/html/rfc7914">RFC 7914</a>), which is also used by several other cryptocurrencies. HFP0 uses the modified scrypt implemented by satoshisbitcoin - refer to <code>src/crypto/modified_scrypt_\*</code> .</p>
+<p>By default, it builds with a modified POW based on Colin Percival's well-known <a href="https://github.com/Tarsnap/scrypt">scrypt</a> algorithm (see also <a href="https://tools.ietf.org/html/rfc7914">RFC 7914</a>), which is also used by several other cryptocurrencies. HFP0 uses the modified scrypt implemented by satoshisbitcoin - refer to <code>src/crypto/modified_scrypt_*</code> .</p>
 
 <p>By configuring the build with <code>--disable-newpow</code>, the new POW is completely disabled and the existing SHA256 is used.</p>
 
