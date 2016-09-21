@@ -1,0 +1,705 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>hfp0 part 2 - overview</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="prev" href="./1-intro.html" title="hfp0 part 1 - intro" />
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./3-details.html" title="hfp0 part 3 - details" />
+
+
+
+<link rel="prev" href="./1-intro.html" title="hfp0 part 1 - intro" />
+
+<link rel="up" href="./1-intro.html" title="hfp0 part 1 - intro" />
+
+<link rel="next" href="./3-details.html" title="hfp0 part 3 - details" />
+
+
+
+<link rel="prev" href="./1-intro.html" title="hfp0 part 1 - intro" />
+
+<link rel="up" href="./2-overview.html" title="hfp0 part 2 - overview" />
+
+<link rel="next" href="./3-details.html" title="hfp0 part 3 - details" />
+
+
+
+<link rel="prev" href="./1-intro.html" title="hfp0 part 1 - intro" />
+
+<link rel="up" href="./3-details.html" title="hfp0 part 3 - details" />
+
+<link rel="next" href="./3-details.html" title="hfp0 part 3 - details" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">hardfork prototype 0</a>/ 
+
+</span>
+<span class="title">
+hfp0 part 2 - overview
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./2-overview.html">hfp0 part 2 - overview</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./3-details.html">hfp0 part 3 - details</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+
+
+<table class="img"><caption>Farmers carrying hay on pitchforks</caption><tr><td><a href="../../images/farmers_carrying_hay_on_pitchforks.jpg"><img src="../../images/farmers_carrying_hay_on_pitchforks.jpg" width="473" height="355" alt="photo of farmers carrying hay on pitchforks" class="img" /></a></td></tr></table>
+
+
+<p></p>
+
+<h1>hardfork_prototype_0 - an early prototype of a Bitcoin hard fork</h1>
+
+<h2>Part 2 - Technical overview</h2>
+
+<p>In this part, I will give a high-level view of the prototype's design, some rationale for choices I made during its development, and an account of what I think is missing, unfinished or not well-implemented compared to how I now imagine a good, safe spin-off.</p>
+
+<h3>HFP0 in brief</h3>
+
+<ul>
+<li>Hard fork triggered purely on block height (separate trigger heights for mainnet/testnet/regtest)</li>
+<li>Proof-of-work: SHA256 or satoshisbitcoin's modified scrypt, depending on build configuration option</li>
+<li>Difficulty reset to low value at fork trigger</li>
+<li>Difficulty algorithm after fork height: MIDAS (per-block retargeting, similar to Dash)</li>
+<li>Block size cap: adaptive (BitPay) with floor of 2MB and ceiling of 4MB</li>
+<li>Block propagation: Xtreme Thinblocks (from Bitcoin Unlimited)</li>
+<li>Alert system disabled</li>
+<li>RBF: disabled (courtesy of Classic 0.12 baseline)</li>
+<li>Network separation: DoS score banning (no change of network magic or port numbers)</li>
+<li>Retrofitted: BIP9, BIP65, BIP68, BIP112, BIP113 + minor cherry-picked bugfixes from various clients</li>
+</ul>
+
+
+<h3>A reminder: HFP0 is a <em>prototype</em>, not ready for production use</h3>
+
+<p>You are welcome to test and play with <a href="https://github.com/BTCfork/hardfork_prototype_0">hardfork_prototype_0</a>, but I strongly suggest you don't put any money (yours or anyone else's) at risk doing so. It's a prototype spin-off which not ready for production. As with any other fork code (or altcoin), you should <a href="https://bitco.in/forum/threads/staying-safe-while-forking-hard.1219/">run it safely</a>.</p>
+
+<p>Feel free to use whatever of it appears useful to your own development, and if you have criticism and feedback, leave comments on <a href="https://www.reddit.com/r/btcfork">/r/btcfork</a>, on the <a href="https://bitco.in/forum">Bitcoin Forum</a> or on any channel of the <a href="https://bitcoinforks.org">BTCfork</a> community.</p>
+
+<h3>You don't have to be mad to attempt a SHA256 spin-off, but...</h3>
+
+<p>Cryptocurrency is a bit of a <a href="http://cryptohustle.com/51-attack-crew-extorts-and-hijacks-blockchains-for-ransom">war zone</a>, with new currencies arising and coming under attack constantly. It's very much survival of the fittest, and one of Bitcoin's advantages has been its substantial network effect that stems from being the first cryptocurrency to 'make it big'. Bitcoin is a gateway to acquiring amounts of other cryptocurrencies and still occupies pole position in the cryptocurrency competition. It has a sizeable established network and surrounding ecosystem which act as an immune system.</p>
+
+<p>Unlike some altcoins which purposefully choose their own unique POW, HFP0 started out under the premise that it would <em>not</em> change the traditional Bitcoin SHA256 POW, specifically to enable existing miners to support it, as the strong security of Bitcoin rests on their hashpower.</p>
+
+<p>A spin-off of Bitcoin which retains the POW and ledger must compete head-to-head with the existing network on its technical value proposition.
+This could well trigger that immune system to fight against the spin-off using a portion of its substantial hashpower and financial reserves instead of letting the market decide on more technical merits.</p>
+
+<p>HFP0 was designed to survive in an environment where it would be attacked by the existing miners. Such attacks are not hypothetical - at least one existing Bitcoin Core developer has a <a href="https://bitcointalk.org/index.php?topic=56675.msg676981#msg676981">track record</a> of attacking other cryptocurrencies. Angel investor Chandler Guo, who backs Chinese Bitcoin enterprises, including mining-related companies, has previously <a href="https://www.cryptocoinsnews.com/miners-attack-ethereum-classic-polonixs-listing/">expressed intention</a> to use hashpower at his disposal to perform a 51% attack on another cryptocurrency's fork <a href="https://twitter.com/chandlerguo/status/757191880740184064">he didn't like</a>. Therefore it is reasonable to assume that some Bitcoin miners might defend their interests with such means.</p>
+
+<p>Is it possible to defend such a spin-off against these overwhelming odds? Provided that you have a well-validated client (not a prototype) and can get some pools, exchanges and miners on board from the start, I'm confident it could work. It would nevertheless require additional defensive measures which satoshisbitcoin didn't need because</p>
+
+<ol type="a">
+<li>it changed the POW to something ASIC-resistant</li>
+<li>it only increased the block size very conservatively, to 2MB</li>
+</ol>
+
+
+<p>Before going over the list of HFP0 additions / changes in more detail, a word on the mainnet / testnet block height triggers you will find in the code (<code>SIZE_FORK_HEIGHT_*</code>). They have been intentionally set to dummy figures. The regtest trigger height is set to 1000 to prevent other tests (related to BIP9-counted softforks) from interfering with the hardfork-specific tests. I wouldn't recommend lowering that value below 1000 (initially I had set it to 160 but after merging BIP9 and other BIPs I quickly found out that it was easier just to raise it than get other range-dependent tests to play nicely with the fork).</p>
+
+<p>On to the other requirements that have been implemented:</p>
+
+<h4>1. More reactive difficulty retargeting</h4>
+
+<p>A block height fork needs to reset the difficulty to a low value when it triggers, so that miners can mine successfully and roughly meet the 10 minute average confirmation times to which users are accustomed. In the initial stages, the aggregate hashrate of the fork chain can be expected to be low compared to the incumbent chain, and relatively speaking, much more variable.</p>
+
+<p>In this situation, there are a number of <a href="https://en.bitcoin.it/wiki/Weaknesses#Attacker_has_a_lot_of_computing_power">majority attacks</a> that can be executed by miners of the existing chain.</p>
+
+<p><a href="https://coinreport.net/little-altcoin-sanity-monero/">Hash bombing</a> is an attack that can be used against multiple "naive" forks if they don't adjust their difficulty quickly enough.</p>
+
+<p>The attacking miners temporarily ramp up the difficulty on one fork, then move on to the next, leaving the previous fork chain to languish while its lesser-powered miners are unable to find blocks quick enough at the now high difficulty ... rinse and repeat.</p>
+
+<p>To fend off such attacks, spin-offs need to be able to adjust their difficulty quickly in the face of hashpower changes.</p>
+
+<p>HFP0 tackles this problem by replacing the historic, every-2016-blocks retargeting algorithm with a much more responsive, per-block algorithm - the Multi Interval Difficulty Adjustment System (<a href="http://dillingers.com/blog/2015/04/21/altcoin-difficulty-adjustment-with-midas/">MIDAS</a>). MIDAS was specifically designed to help a coin survive large fluctuations in hashpower and <a href="https://litecoin.info/Time_warp_attack">timewarp attacks</a>  such as the <a href="http://bitcoin.stackexchange.com/questions/1055/what-is-the-zeitgeist-attack-does-it-affect-all-blockchain-technologies/1058#1058">Zeitgeist</a> attack <a href="https://bitcointalk.org/index.php?topic=43692.msg521772#msg521772">performed against Geistgeld</a> and <a href="http://www.coindesk.com/things-alt-ponzi-schemes-blackcoin-usbs-time-warp-attack/">similar attacks</a> against other coins.</p>
+
+<p>There has been a lot of discussion about whether the "<em>magic number</em>" of 2016 blocks in Bitcoin's block retargeting interval actually serves some useful purpose. It equates to roughly 2 weeks (14 days @ 144 blocks/day). It has the observable effect that Bitcoin reacts quite slowly to changes in hashpower, which is good for the established chain and dominant miners, but makes life difficult for a fledgling spin-off.</p>
+
+<p>It seems there <a href="http://bitcoin.stackexchange.com/questions/9305/why-not-retarget-on-every-block">isn't anything special</a> about the 2016-block interval.
+One argument raised in its favor (other than "<em>because that's what Satoshi picked</em>") is that it provides a form of planning security for miners and pools.
+I'm not convinced. Surely having more up-to-date information on the actual trend in hashpower is more valuable than not having that information, and instead having a growing uncertainty as time goes on?
+If you have come across a more convincing logical argument, please let me know.</p>
+
+<p>I don't believe Satoshi intended the long interval as a defense against rival hard forks, but I'm open to correction (please provide a citation).</p>
+
+<p>What surprised me, from discussions within BTCfork, is that quite a few developers are fond enough of the 2016 number to want to keep it around, or at least re-converge to it soon after a fork.
+I think that's risky. There is no crystal ball that can predict when the hashrate will stabilize. Whatever number or algorithm you pick to converge back to the status quo - adversaries can exploit it after studying your fork code and waiting the required amount of time before attacking.</p>
+
+<p>Recalculating on every block allows maximal responsiveness to whichever algorithm you pick, which is where the defensive strength lies. It also doesn't cost much in terms of performance. Compared to the other block validation computations, the difficulty retargeting overhead is insignificant even for a more complex algorithm such as MIDAS.</p>
+
+<p>Per-block retargeting is used successfully in many well-known coins (<a href="http://ethereum.stackexchange.com/questions/1880/how-is-the-mining-difficulty-calculated-on-ethereum">Ethereum</a>, <a href="http://monero.stackexchange.com/a/1010/454">Monero</a>, <a href="http://dashcoin.info/">Dash</a>, <a href="https://en.wikipedia.org/wiki/Dogecoin#Mining_parameters">Dogecoin</a>) with various algorithms (e.g. Dash's Dark Gravity Wave v3, Dogecoin's DigiShield, etc). Some of these coins have much faster block periods than Bitcoin's 10 minute average. Therefore it is clear that per-block retargeting is not inherently flawed and scales down to even small block periods (not that I'm suggesting we should change the block period at this stage).</p>
+
+<h4>2. Adaptive block size cap</h4>
+
+<p>From the outset, HFP0 was intended to support a block size larger than Classic's 2MB.</p>
+
+<p>To prevent a situation where an attacker could spam the network with huge blocks consisting only of their own transactions, I wanted to include an algorithm to dynamically adjust the maximum block size between some lower and upper bound, based on network demand.</p>
+
+<p>BitPay had earlier <a href="https://medium.com/@spair/a-simple-adaptive-block-size-limit-748f7cbcfb75#.xwqst99sf">presented their thoughts</a> and a <a href="https://github.com/bitpay/bips/blob/master/bip-adaptiveblocksize.mediawiki">design</a> for an adaptive block size algorithm which adjusted the maximum block size based on the median block size in a historic window.
+They <a href="https://github.com/bitpay/bitcoin/tree/adaptive-block-size">implemented it</a> to study its performance w.r.t. historical block size data and <a href="https://medium.com/@spair/an-adaptive-block-size-for-bitcoin-947fbc620c9b#.5241ssq29">the results</a> were quite encouraging.</p>
+
+<p>I liked this simple algorithm proposal from the start, because its core design was virtually identical to the median-based algorithm used in Monero (although Monero <a href="http://monero.stackexchange.com/a/1074/454">goes further</a> and adjusts the block reward if the block size exceeds a minimum median size). I am not a fan of flexcap-like proposals.
+By changing Bitcoin's rather elegant and simple incentive structure, they could introduce unforeseen economic consequences. So far, I haven't seen any studies which refute BitPay's findings that their adaptive block size proposal could work well for Bitcoin and public opinion of it seemed quite favorable since its release.</p>
+
+<p>The BitPay adaptive block size algorithm is a good choice for a fork which doesn't completely abolish the block size cap, but wants to offer a pathway to significantly larger blocks. An algorithmically controlled block size cap is much easier to come to terms with than Bitcoin Unlimited's radical concept of "emergent consensus".</p>
+
+<p>Nowadays, I think BU's concept is more widely understood than it was in early 2016, which is reflected in the increasing support among users and miners. An overwhelming majority of respondents in a Reddit poll recently <a href="https://www.reddit.com/r/btcfork/comments/52purc/repost_which_client_do_you_want_btcfork_to/">voted BU as their favored baseline</a> client for BTCfork's MVF implementation.</p>
+
+<p>HFP0 modifies BitPay's adaptive algorithm slightly to provide a raised floor of 2MB (instead of the historic 1MB).
+I've also added a ceiling of 4MB, since 4MB has been described as relatively safe in the Cornell study on block propagation.</p>
+
+<p>Soft-limit scaling has been disabled for simplicity reasons (the configured soft limit is used as-is). A production-ready spin-off using of BitPay's algorithm would almost certainly provide automatic soft-limit scaling.</p>
+
+<h4>3. Improved block propagation using Xtreme Thinblocks</h4>
+
+<p>The traditional block diffusion method in Bitcoin is not optimal as it transfers uncompressed block data all the time.</p>
+
+<p>For a small increase in the block size, such as from 1MB to 2MB, this would be hardly noticeable. <a href="fc16.ifca.ai/bitcoin/papers/CDE+16.pdf">Studies</a> have shown that as the block size increases, propagation within the network becomes increasingly problematic, although at sizes up to 4MB, 90% of the nodes measured could cope <a href="http://www.coinfox.info/news/5221-research-10-existing-bitcoin-nodes-are-capable-to-operate-with-200-mb-blocksize">without problems</a>.</p>
+
+<p>The block propagation bottleneck had been known for quite some time and major clients have all added improved block propagation methods:</p>
+
+<ul>
+<li>Bitcoin XT's thinblocks implementation</li>
+<li>Bitcoin Unlimited's Xtreme Thinblocks (Xthinblocks)</li>
+<li>Bitcoin Core's CompactBlocks</li>
+</ul>
+
+
+<p>Before working on this fork, I had briefly started to look at yet another block propagation improvement idea - Jonathan Toomim's 'blocktorrent' concept. I decided that working on a hard fork was more urgent, as Xthinblocks were already in good shape and a further block propagation algorithm would provide only marginal improvement.
+However, the main projects were not focused on providing a guaranteed (non-elective) alternative plan to Core's soft-fork-riddled roadmap, in case the BIP109 election strategy failed or some other unforeseen disaster (e.g. Fee Event, Halving Death Spiral) were to befall due to 1MB blocks filling up as predicted.</p>
+
+<p>While I was working on HFP0, Bitcoin Unlimited's Xthinblocks were already proving themselves in the field. I witnessed firsthand the bandwidth savings on my Unlimited node. I was impressed and confident that Xthinblocks could easily handle fast propagation of larger blocks, preventing adverse affects on the network even if consumer-grade connectivity was assumed.
+The Bitcoin Unlimited team has since <a href="https://medium.com/@peter_r/towards-massive-on-chain-scaling-presenting-our-block-propagation-results-with-xthin-da54e55dc0e4#.xmxskiin9">rigorously demonstrated</a> the beneficial effects on latency and bandwidth in a well-received experiment conducted across the Great Firewall of China.</p>
+
+<p>Rusty Loy ported the Xthinblocks implementation over to Bitcoin Classic 0.12, which was fortunate since it meant I didn't have to port it directly from BU myself, but could instead integrate his code quite easily into HFP0.</p>
+
+<p>When CompactBlocks were announced by Core, I didn't see enough additional value over Xthinblocks to merit integrating them, especially as a spin-off would at first not need to interoperate with other clients.</p>
+
+<h3>Minor improvements</h3>
+
+<h4>4. More effective network separation</h4>
+
+<p>HFP0 separates from other-chain peers more effectively than the final version of satoshisbitcoin did. In fact this seems to have been one of the remaining open issues after satoshisbitcoin's last public test.</p>
+
+<p>Recent discussions with members of the BTCfork development community have convinced me that HFP0 is still messier in this regard than it should be. I elaborate on this in the section '<em>Missing items</em>' below.</p>
+
+<h4>5. Disabling of alert system</h4>
+
+<p>The alert system has been disabled. If the command line option or configuration file option is enabled, the client prints a message that the system is deprecated and disabled.</p>
+
+<p>The alert system was initially considered in satoshisbitcoin as a tool to help with fork separation.</p>
+
+<p>However, Core and other clients have subsequently removed it and there is no good reason for a spin-off to keep it around. It just introduces an issue of centralized alert key management. As it turned out, that <a href="https://lists.linuxfoundation.org/pipermail/bitcoin-dev/2016-September/013104.html">didn't work out well</a> the last time.</p>
+
+<p>The obsolete alert system code in HFP0 was intended to be completely removed in a later clean-up update.</p>
+
+<h4>6. Backport activated soft-forks</h4>
+
+<p>BIPs 65, 68, 112 and 113 were considered necessary as they are already active on the main chain.</p>
+
+<h2>Missing items</h2>
+
+<p>This fork prototype lacks several features which should be implemented in a finished version.</p>
+
+<p>Some of them should be considered critical - others are not so important or just nice to have.</p>
+
+<h3>Urgent</h3>
+
+<p>The missing features listed below are what I consider highly important.
+If left unimplemented, they would in my opinion seriously and unnecessarily endanger the viability of an attempted spin-off.</p>
+
+<h4>Replay attack protection (signature change)</h4>
+
+<p>This prototype is lacking protection against so-called 'replay attacks'.
+A replay attack can occur when a malicious actor can pick up transactions on the fly on one network and replay them onto the other (forked) network against the wishes of the transaction sender.</p>
+
+<p>In a spin-off situation, many holders of coins will want to have the ability to transact independently with their pre-fork holdings on the various fork chains.
+This helps with price finding and boils down to your right as a holder to spend your money <em>where</em> you please, <em>when</em> you please.</p>
+
+<p>To guard against malicious replays, a fork needs to modify the signature scheme, so that only the original sender can produce a valid transaction on either chain.</p>
+
+<p>The <a href="https://bitco.in/forum/threads/forking-tx-sigs-technical-discussion.1300/">initial design</a> I came up with proved inadequate - it prevented replay of transactions only in one direction.
+It would have still been possible for transactions made using the spin-off client to be replayed on the other chain.</p>
+
+<p>After discussions among BTCfork developers, a <a href="https://steemit.com/bitcoin/@jl777/bitcoin-spinoff-fork-how-to-make-a-clean-fork-without-any-replay-attack-and-no-blockchain-visible-changes">better solution</a> seems to have been found. This will be implemented and tested in a future fork prototype (unless analysis reveals a weakness and requires a change of plans).</p>
+
+<h4>Proper DNS seeds, static IP seeds</h4>
+
+<p>Until now, I've only tested HFP0 in an isolated test environment (although it did include an isolated version of testnet).</p>
+
+<p>In the released HFP0 code, all DNS seeds have been removed and IP seeds replaced by a shortlist of private IPs from my test environment. This is because:</p>
+
+<ol>
+<li>there is no need to bother existing public peers while testing a prototype on an isolated test network</li>
+<li>it simplified test activities</li>
+</ol>
+
+
+<p>A viable spin-off should come with public seeds to get up and running, and so it would need to populate the seed lists with its own addresses.</p>
+
+<p>To make it easier to re-use software builds in various test environment, it would be nice if seed configuration changes did not require a recompilation of the application.
+That's a nice little task for a rainy day.</p>
+
+<p>Running the prototype without preconfigured peers should work fine, only requiring some additional manual actions (e.g. <code>addnode</code> commands) to establish peer connections.</p>
+
+<h4>Review and evaluation of modified POW</h4>
+
+<p>The modified scrypt algorithm has been exposed to some informal testing during satoshisbitcoin's public tests and private tests of HFP0.</p>
+
+<p>However it is <a href="https://bitco.in/forum/threads/announcement-bitcoin-project-to-full-fork-to-flexible-blocksizes.933/page-9#post-20702">not known</a> to have received significant code review and rigorous verification.</p>
+
+<p>As this modified scrypt POW is intended to be mined using CPUs, the scrypt variant of HFP0 might be vulnerable to botnet attacks. Further analysis is definitely needed to determine weaknesses and possible improvements.</p>
+
+<p>It may be preferable to exchange the modified scrypt POW algorithm for one that has already been proven in practice. There are several strong GPU algorithms that may bring existing hashpower benefits to a spin-off, however there are also existing mining entities in the Bitcoin space which have significant altcoin GPU mining hashpower alongside their Bitcoin ASIC mining operation.</p>
+
+<h4>Backup of pre-fork wallet</h4>
+
+<p>After the fork occurs, transactions involving post-fork coins can start to taint the user's wallet file, making it difficult or impossible to spend coins from the wallet with an old-chain client.</p>
+
+<p>It would be sensible to create a backup for user of the wallet file as it existed just prior to the fork.
+That way the user would have no problem accessing pre-fork coins on the old chain as well.</p>
+
+<p>HFP0 currently does not back up the wallet, instead relying on the user to create their own wallet backup before the fork triggers.
+Some users will inevitably forget to do such backups, leading to support problems.
+It's also questionable whether this can be done safely manually, without shutting down the client. Stopping for a wallet backup might not be satisfactory for users who might need to keep on transacting across the fork height. A software feature to assist users is required.</p>
+
+<h4>Cleaner network separation</h4>
+
+<p>HFP0 does not change the network magic or TCP port at fork time. It remains connected at network level to the old chain's network, processing protocol data that they may send to HFP0 peers.</p>
+
+<p>While it separates slightly better than satoshisbitcoin's final version from the old chain network, the network separation is still deficient.</p>
+
+<p>HFP0 separation relies on the banning of peers which send it old-version blocks after the fork height.  At fork time, it switches to a new block version and accepts only blocks of that version (or higher). However, it carries on receiving new blocks even from the old chain, and looks at them to see if they are forked blocks or not.
+If it sees that that they have the wrong block version, it raises the ban score on the peer that sent it, until that peer eventually becomes disconnected.
+In turn, the old chain peer would ban the forked peer as well for misbehaving, at the latest when the fork chain peer keeps sending it blocks that have the wrong difficulty or whose has doesn't match SHA256 anymore (for the POW fork chain).</p>
+
+<p>A better fork design would change the network magic. This would significantly reduce the amount of unnecessary processing it does on packets that come from the old chain.
+An attacker would have to spoof the network magic to feed protocol packets to the new chain, otherwise it would just not process them further.</p>
+
+<p>Even better would be if the fork disconnected cleanly from non-fork peers (without the banning drama). But how to reconnect only to the peers of your fork? Can you tell them apart from the other clients that are not aware of your fork, that you may not want to connect to? It becomes a little complex.</p>
+
+<p>To simplify that complexity, all fork-aware (and fork-compatible) clients could move together to a separate network port, forming their own Bitcoin peer network disconnected from the existing one. This requires a little more code - you have to cleanly disconnect, close network sockets, open new ones, reconnect to peers etc.
+That comes with risks of its own:</p>
+
+<ul>
+<li>you have to have enough fork peers in your peer list, or use somewhat centralized, publicly visible discovery mechanisms (DNS seeds, perhaps some onion service) which can be attacked</li>
+<li>at least you know that the existing Bitcoin TCP port is already available on your system because you were running on it -- a new port might already be bound by another application on some systems</li>
+</ul>
+
+
+<p>Despite the complications, a cleaner separation is certainly possible, and it would be worth investing some effort to mitigate risks and avoid negative impacts on both sides of the network.</p>
+
+<p>HFP0 also changes the P2P protocol version (different versions used depending on POW/non-POW variant). However, it does not use the protocol version to ban peers after forking. The protocol version was initially changed with that idea in mind, but I abandoned that as a peer should be able to talk to peers with other protocol versions as freely as possible. So the HFP0 protocol versions are just informational, like the user agent string, to be able to recognize it on the network.</p>
+
+<h4>Better peers/banlist datafile handling</h4>
+
+<p>HFP0 does not clean up or write to a separate, new <code>peers.dat</code> file. This is an area where satoshisbitcoin was slighly better. It switched to a new peers file (<code>forked_peers.dat</code>) at the fork. My view is that it should have backed up the pre-fork <code>peers.dat</code> file under a different name, e.g. <code>oldpeers.dat</code>, and then carried on using <code>peers.dat</code> as the active peers filename.</p>
+
+<p>As I didn't like the way satoshisbitcoin implemented the switchover, I've removed it in HFP0.</p>
+
+<p>I think files like <code>peers.dat</code> and <code>banlist.dat</code> are de-facto well-known interfaces which should be maintained unless there is a compelling reason.
+These files are widely documented using their specific names / locations, and configured in backup scripts and other miscellaneous procedures developed by users of the Bitcoin software.
+Changing the active locations violates the principle of least surprise.  Imagine if every fork abandoned them in a different way!</p>
+
+<p>In this case, it shouldn't be too hard to just back them up as-is under a different name, and then keep using the old location for the active file.
+It's less painful to document once where you create a backup, instead of breaking all user-related documentation.</p>
+
+<h4>Complete test coverage</h4>
+
+<p>HFP0 test coverage is inadequate, which is forgivable in the case of a prototype where someone is learning the code and trying out various things, but it would be unacceptable for a serious spin-off attempt.</p>
+
+<p>Here is a list of HFP0's current shortcomings w.r.t. its own additions:</p>
+
+<ul>
+<li>MIDAS is missing unit and integration/regression tests.</li>
+<li>The hard fork trigger tests need to check more thoroughly around the trigger height, and in re-org circumstances.</li>
+<li>The big block aspects need an overhaul to test right up to the 4MB ceiling.</li>
+<li>The BitPay adaptive block size feature needs an integration test, not just unit testing.</li>
+</ul>
+
+
+<p>With upcoming fork developments under the BTCfork umbrella, we intend to specify changes in terms of proper requirements and better documented design,
+which should make it easier to implement tests and expose areas that lack verification.</p>
+
+<h4>Known Bugs that need fixing</h4>
+
+<p>HFP0 likely contains a few bugs. Two existing tests are known to fail and need to be fixed:</p>
+
+<ul>
+<li><code>bip68-sequence</code></li>
+<li><code>pruning</code></li>
+</ul>
+
+
+<p>The first failure (<code>bip68-sequence</code>) might be unrelated to the fork changes, or due to code which I might not have merged carefully enough.
+I haven't been able to identify the exact fixes, but similar problems were observed with that test on Classic v0.12,
+and have since been fixed in Classic v1.1.0.</p>
+
+<p>The pruning test failure looks like it might fail due to re-org problems. These would be a consequence of fork-related changes.
+Troubleshooting is painfully slow because of the long running time of the test.</p>
+
+<p>A possible (unconfirmed) bug is the continued usage of the old max block size when creating an instance of the ValidationCostTracker in <code>src/main.cpp</code>:</p>
+
+<p><code>
+ValidationCostTracker costTracker(OLD_MAX_BLOCK_SIGOPS, MAX_BLOCK_SIGHASH);
+</code></p>
+
+<p>At the time of adapting the code, I was unsure whether the dynamically calculated block sigops value could be safely used.
+I've marked that as a possible bug using a TODO.</p>
+
+<h3>Non-urgent omissions</h3>
+
+<p>These are bits and pieces which are unfinished but seem less urgent.</p>
+
+<h4>Scaling of soft block size limit</h4>
+
+<p>The optional automatic soft limit scaling feature of BitPay's algorithm was disabled due to time constraints.
+HFP0 uses the configured soft limit if the <code>-blockmaxsize</code> option is provided.</p>
+
+<p>Automatic scaling would be a useful feature to re-enable - it should require limited effort to implement, test and document.</p>
+
+<p>As it is, miners could work around the lack of auto-scaling by adjusting their soft limits periodically.</p>
+
+<h4>Removal of unnecessary debug traces</h4>
+
+<p>I've left debug traces in the source in case someone wishes to use them to help with understanding HFP0's workings.
+All new traces should be guarded by <code>#ifdef</code> conditionals which can be selectively enabled by definitions in <code>consensus.h</code>.</p>
+
+<p>Some of the traces were helpful in troubleshooting certain problems, even with a debugger. A lot of things can go wrong on transactions, problems in that domain were were particularly gnarly to debug, so I added some traces for that.</p>
+
+<h4>Better informational output</h4>
+
+<p>There is no informational output available via the <code>getblockchaininfo</code> RPC call.</p>
+
+<p>It would be nice to provide an indication about how many blocks are left before the block-height fork triggers.</p>
+
+<h4>Resolution of remaining TODOs</h4>
+
+<p>If you search the code for the regular expression <code>'HFP0.*TODO'</code>, you will find quite a few TODO items scattered around.</p>
+
+<p>Below I summarize the more important ones which haven't been mentioned above and would require resolution for a fork:</p>
+
+<ul>
+<li>POW and non-POW variants might benefit from having their own distinct POW limits. I have tested before on a walled-off instance of testnet, and the current POW limit (which is used to reset the difficulty at fork time) worked well enough for my desktop PC to mine blocks at a reasonable 'few minutes per block' initial rate.</li>
+<li>POW limits should be calibrated.</li>
+<li>Minor cleanups from Bitcoin Classic's BIP109, replacing with block-height hardfork appropriate equivalents. For example, the <code>sizeForkTime</code> variable is a leftover which should be removed. It is still used in code path triggered by <code>getblockchaininfo</code> RPC call.</li>
+</ul>
+
+
+<h4>Code cleanups</h4>
+
+<p>A few possible refactorings and cleanups would be advisable.</p>
+
+<ul>
+<li>More global variables introduced as part of the adaptive blocksize feature.</li>
+<li>The added debugging traces could be removed.</li>
+<li>Clean up the mixture of C/C++ style comments where HFP0 was responsible for creating a mess.</li>
+</ul>
+
+
+<h4>Adapt the bitcoin-tx tool in case of signature changes</h4>
+
+<p>This tool would need to be enhanced to optionally emit modified transaction signatures, in case replay attack prevention is implemented using signature change.
+Otherwise it will not be able to generate valid transaction signatures for the post-fork chain.</p>
+
+<hr />
+
+<p>In the third and final part of this article, I will look in more detail at the code changes.</p>
+
+<h3>Feedback</h3>
+
+<p>If you wish to provide feedback or ask questions about HFP0, I've opened a Reddit thread at <a href="https://www.reddit.com/r/btcfork">/r/btcfork</a> to gather comments and questions.</p>
+
+<p>The BTCfork community welcomes everyone who wants to enable a hard fork to join in the discussion.
+We meet up on various forums and chat channels to discuss and collaborate on matters related to hard forks:</p>
+
+<ul>
+<li>on Reddit at <a href="https://www.reddit.com/r/btcfork">/r/btcfork</a></li>
+<li>on our Slack (sign up <a href="https://btcforks.signup.team/">here</a>)</li>
+<li>on GitHub at <a href="https://github.com/BTCfork">https://github.com/BTCfork</a></li>
+</ul>
+
+
+<p>Please refer to the BTCfork <a href="https://bitcoinforks.org/#contribute">website</a> for more information on how to contribute.</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./2-overview.html">hfp0 part 2 - overview</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+
+
+
+<div class="trail">
+
+<span class="trailprev">
+<span class="trailarrow">←</span>
+<a href="./1-intro.html">hfp0 part 1 - intro</a>
+<span class="trailsep">|</span>
+</span>
+
+<span class="trailup">
+<a href="./3-details.html">hfp0 part 3 - details</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./3-details.html">hfp0 part 3 - details</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/BTCfork.html" rel="tag">BTCfork</a>
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/HFP0.html" rel="tag">HFP0</a>
+
+<a href="../../tags/fork.html" rel="tag">fork</a>
+
+</div>
+
+
+
+<div id="backlinks">
+Links:
+
+<a href="./1-intro.html">1-intro</a>
+
+
+</div>
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Wed 21 Sep 2016 16:02:59 CEST</span>
+<!-- Created <span class="date">Wed 21 Sep 2016 11:00:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
