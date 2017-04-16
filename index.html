@@ -82,8 +82,8 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">8</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170409-weekly-musing-001-1.html" title="20170409-weekly-musing-001-1">9</a></td>
-        <td class="month-calendar-day-future Monday">10</td>
+        <td class="month-calendar-day-link Sunday"><a href="./posts/weekly_musings/20170409-weekly-musing-001-1.html" title="20170409-weekly-musing-001-1">9</a></td>
+        <td class="month-calendar-day-nolink Monday">10</td>
         <td class="month-calendar-day-nolink Tuesday">11</td>
         <td class="month-calendar-day-nolink Wednesday">12</td>
         <td class="month-calendar-day-nolink Thursday">13</td>
@@ -91,8 +91,8 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">15</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">16</td>
-        <td class="month-calendar-day-nolink Monday">17</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170415-weekly-musing-002-1.html" title="20170415-weekly-musing-002-1">16</a></td>
+        <td class="month-calendar-day-future Monday">17</td>
         <td class="month-calendar-day-nolink Tuesday">18</td>
         <td class="month-calendar-day-nolink Wednesday">19</td>
         <td class="month-calendar-day-nolink Thursday">20</td>
@@ -126,12 +126,12 @@ freetrader's blog
 <p><a href="./tags.html">Tags</a>:</p>
 
 <ul class="list">
-<li><span class="bigPC"><a href="./tags/BTCfork.html">BTCfork</a></span>
+<li><span class="normalPC"><a href="./tags/BTCfork.html">BTCfork</a></span>
 </li><li><span class="biggestPC"><a href="./tags/Bitcoin.html">Bitcoin</a></span>
-</li><li><span class="bigPC"><a href="./tags/HFP0.html">HFP0</a></span>
-</li><li><span class="bigPC"><a href="./tags/fork.html">fork</a></span>
+</li><li><span class="normalPC"><a href="./tags/HFP0.html">HFP0</a></span>
+</li><li><span class="normalPC"><a href="./tags/fork.html">fork</a></span>
 </li><li><span class="smallPC"><a href="./tags/musings.html">musings</a></span>
-</li><li><span class="smallPC"><a href="./tags/personal.html">personal</a></span>
+</li><li><span class="smallestPC"><a href="./tags/personal.html">personal</a></span>
 </li><li><span class="smallPC"><a href="./tags/weekly.html">weekly</a></span>
 </li></ul>
 
@@ -148,6 +148,253 @@ freetrader's blog
 
 <div  class="feedlink">
 
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/weekly_musings/20170415-weekly-musing-002-1.html">freetrader&#x27;s weekly musings - volume 2</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<h1>Weekly musing #2 - happy Easter!</h1>
+
+<table class="img"><caption>Ukrainian pysanky
+       <br>
+       repainted by yours truly
+       <br>
+       Original image in PD [1]</caption><tr><td><a href="./images/Ukrainian_pysanky_from_Priashivshchyna_01-repainted-by-freetrader-small.png"><img src="./images/Ukrainian_pysanky_from_Priashivshchyna_01-repainted-by-freetrader-small.png" width="180" height="241" alt="Ukrainian pysanky, repainted by freetrader" class="img" /></a></td></tr></table>
+
+
+<p>I've been busy painting easter eggs this week. Happy hunting!</p>
+
+<h2>Thoughts on verification and validation in Bitcoin projects</h2>
+
+<p>To recap the difference between verification and validation:</p>
+
+<dl>
+<dt>Verification:</dt>
+<dd>
+Does the software work right (according to the specified requirements)?
+</dd>
+<dt>Validation:</dt>
+<dd>
+Does it do the right thing (are the requirements correct, consistent, complete, ...)?
+</dd>
+</dl>
+
+
+<h2>Thinking globally</h2>
+
+<p>If Bitcoin manages to grow out of its current stagnation - and I remain optimistic - then it could become a component of human civilization that is just as important as the Internet, or whatever will replace our global communications medium in 20-100 years.  We want to be able to trust this Bitcoin software with our money, which can be life and death matter.</p>
+
+<p>Imagine you need to pay for medical treatment for yourself or a loved one using Bitcoin.  What if the system has a bug and now your funds have been transferred to another recipient than intended?</p>
+
+<p>It is very important that we ensure the best possible engineering practices in our work on this new technology.
+In our automated world, software errors <a href="https://raygun.com/blog/10-costly-software-errors-history/">are becoming increasingly costly</a>.
+The "high-end" ones listed there are in the region of up to $500M . I offer a humble prediction:</p>
+
+<p> <em><strong>The most costly software mistakes of the near future will belong to cryptocurrency projects.</strong></em></p>
+
+<p>Hopefully not Bitcoin though <img src="./smileys/smile.png" alt=":-)" /></p>
+
+<p>At this time, Bitcoin <a href="http://coinmarketcap.com">market cap</a> stands at around $19B .
+A serious bug could easily halve this, leading to severe losses for many individual users.
+Nobody wants to be the responsible developer, reviewer, tester or project leader who let a major bug slip through the cracks.
+Fortunately, as I look around today, there are plenty of source projects which work in exemplary ways from which we can draw inspiration for Bitcoin and avoid pitfalls.
+So let's look outside of our cryptocurrency box for a moment.</p>
+
+<h3>Virtuous example 1: Linux kernel project</h3>
+
+<p>Around April 2003 (as far as I can tell), Craig Thomas of Open Source Development Lab released a paper, which I would encourage you to have a look at (or read again) if you have some free time on this long weekend:</p>
+
+<blockquote><p>"<a href="http://flosshub.org/system/files/133-136.pdf">Improving Verification, Validation, and Test of the Linux Kernel: the Linux Stabilization Project</a>" <a href="#footnote2">[2]</a>.</p></blockquote>
+
+<p>At the time, the Linux kernel was moving towards version 2.6, experiencing great uptake, with lots of contributors growing the size of the project.
+Reading just the first four sections of the paper, the similarities to the state of the Bitcoin "project" (in a bigger sense) are quite evident.
+How does this sound:</p>
+
+<blockquote><p>"Since there are no formal specifications for many of the features of the <del>kernel</del> protocol" (replacement mine)</p></blockquote>
+
+<p><a href="./images/tux_big.svg"><img src="./images/tux_big.svg" alt="Tux, the Linux penguin" class="img" align="right" /></a></p>
+
+<p>Or this:</p>
+
+<blockquote><p>"While many people contribute features and patches to the <del>kernel</del> protocol, very few people actually take a disciplined approach to testing it."</p></blockquote>
+
+<p>Sound familiar?</p>
+
+<p>Looking back now, we can say that the Linux project did a good job at solving its problems:</p>
+
+<ul>
+<li>lack of specification: addressed through the <a href="https://wiki.linuxfoundation.org/lsb/start">Linux Standards Base</a></li>
+<li>lack of test coverage: addressed through the <a href="https://linux-test-project.github.io/">Linux Test Project</a></li>
+</ul>
+
+
+<p>We would do well to emulate Linux in setting up similar projects for Bitcoin, which could span various client implementations while focusing on a set of 'base' protocol features.
+After all, our various client projects (Core, Knots, XT, Classic, Bitcoin Unlimited, etc.) are similar to Linux distributions based loosely off a common "kernel" of features.</p>
+
+<p>It is my hope that someday, we will have a "Bitcoin Standards Base" and a "Bitcoin Test Project" to cover multiple needs in the industry and advise people, whether they be users wanting to assist or projects/businesses wanting to use the technology or develop it further.</p>
+
+<h3>Virtuous example 2: Wikimedia organization</h3>
+
+<p>Another good example of a project to emulate in terms of openness is <a href="https://www.wikimedia.org/">Wikimedia.org</a>.</p>
+
+<p>They have their entire code review and integration test pipeline publicly visible, including for the <a href="https://www.mediawiki.org/wiki/MediaWiki">MediaWiki</a> framework, the software that powers Wikipedia. Some examples of the verification related data they publish:</p>
+
+<ul>
+<li>Wikimedia CI dashboard: https://grafana.wikimedia.org/dashboard/db/continuous-integration?orgId=1</li>
+<li>Jenkins CI server: https://integration.wikimedia.org/ci/</li>
+<li>Code review (using Gerrit): https://gerrit.wikimedia.org/r/#/q/status:open</li>
+<li>Code test coverage: https://doc.wikimedia.org/cover/</li>
+<li>Test cluster health stats: https://tools.wmflabs.org/nagf/?project=integration</li>
+</ul>
+
+
+<p>Having this information publicly available greatly helps those who want to get involved, whether as developers or testers.</p>
+
+<p>This is all built on free or open source software, so it feeds an ecosystem that can grow into the future, unconstrained by small-scale profit motives.</p>
+
+<p>For a Bitcoin client, I would presume it would be natural that not only the software is open source, but also all the data and research related to it - i.e. input and results of tests, simulations etc. <a href="https://opensource.org/">Open source</a>, <a href="https://en.wikipedia.org/wiki/Open_data">open data</a> (the blockchain is a perfect example), <a href="https://fsfe.org/activities/os/def.en.html">open standards</a> <a href="#footnote3">[3]</a>, <a href="https://en.wikipedia.org/wiki/Open_access">open access</a>. Did I miss anything? Maybe "open infrastructure/integration" - ensuring that the project infrastructure allows individuals and other organization to easily "plug in" through a variety of software interfaces, to feed in data and extract it.</p>
+
+<h3>Virtuous example 3: NASA (you said you want to go the moon!)</h3>
+
+<p>In my software career, I have come across extremely helpful bits within the mountains of information that NASA publishes.
+A good point to start would be <a href="https://code.nasa.gov/">https://code.nasa.gov/</a> !</p>
+
+<p>If we ignore the "Projects" for now, and navigate to the "<a href="https://code.nasa.gov/#/guide">Guide</a>" section, we find some interesting further links:</p>
+
+<blockquote><p>Software release at NASA is governed by <a href="http://nodis3.gsfc.nasa.gov/displayDir.cfm?t=NPR&amp;c=2210&amp;s=1C">NPR 2210.1C</a>. NPR 2210.1C establishes the roles, responsibilities, and procedures for reporting, reviewing, and releasing software under various conditions, including open source.</p></blockquote>
+
+<p>The link which I've embedded goes to NODIS, the NASA Online Directives Information System - a search engine for information on agency directives. This looks dry, but contains a ton of useful information, if one digs a little. For example, the previous "Guide" page also mentions:</p>
+
+<blockquote><p>NASA has established formal software engineering requirements in NPR 7150.2A. These requirements govern all software development activities and must be followed throughout a project's development life cycle.</p></blockquote>
+
+<p>We can <a href="https://nodis3.gsfc.nasa.gov/npr_sort.cfm">use NODIS to locate</a> this "NPR 7150.2A". Actually, it tells us that it has been replaced by an updated revision, NPR 7150.2B:</p>
+
+<p><a href="https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_">https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_</a></p>
+
+<p>In the preface, this contains an interesting picture to give an overview of the kinds of software that NASA needs to manage.</p>
+
+<table class="img"><caption>Figure 1-1 NASA Software Classification Structure</caption><tr><td><a href="./images/NPR7150.002BP1G1.png"><img src="./images/NPR7150.002BP1G1.png" width="593" height="532" alt="Figure 1-1 NASA Software Classification Structure" class="img" /></a></td></tr></table>
+
+
+<p>Let's say you had to pay for your moon rocket in bitcoins.
+Where would you put Bitcoin software, in that classification?</p>
+
+<p>The parts of NPR7150.2B that will be of more interest as potential inspiration to those concerned with serious software development are the "meat chapters" 3-6:</p>
+
+<ul>
+<li><a href="https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_&amp;page_name=Chapter3">Chapter 3: Software Management Requirements</a></li>
+<li><a href="https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_&amp;page_name=Chapter4">Chapter 4: Software Engineering Life-Cycle Requirements</a></li>
+<li><a href="https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_&amp;page_name=Chapter5">Chapter 5. Supporting Software Life-Cycle Requirements</a></li>
+<li><a href="https://nodis3.gsfc.nasa.gov/displayDir.cfm?Internal_ID=N_PR_7150_002B_&amp;page_name=Chapter6">Chapter 6. Recommended Software Documentation Contents</a></li>
+</ul>
+
+
+<p>Chapter 3, while apparently about "management" (rolls eyes), has valuable guidance in there. Don't be put off.
+Especially section 3.7, "Safety-critical software" - this is not just applicable to space station software!
+Let's take some tidbits of advice!</p>
+
+<pre><code>a. Safety-critical software is initialized, at first start and at restarts, to a known safe state.
+d. Operator overrides of safety-critical software functions require at least two independent actions by an operator.
+g. Safety-critical software performs integrity checks on inputs and outputs to/from the software system.  
+k. Software provides error handling of safety-critical functions. 
+</code></pre>
+
+<p>Ch. 4 contains this piece of wisdom:</p>
+
+<p><code>4.1.1 The requirements phase is one of the most important phases of software engineering. Studies show that the top problems in the software industry are due to poor requirements elicitation, inadequate requirements specification, and inadequate management of changes to requirements. Requirements provide the foundation for the entire life-cycle, as well as for the software product.</code></p>
+
+<p>And it goes on to say about testing (for "project manager" you can also read "lead maintainer", "The Developer", "CTO" or just "you" as a software developer in a Bitcoin context):</p>
+
+<p><code>4.5.3 The project manager shall perform software testing. [SWE-066]</code></p>
+
+<p><code>Note: A best practice for Class A, B, and C software projects is to have formal software testing planned, conducted, witnessed, and approved by an independent organization outside of the development team. Testing could include software integration testing, systems integration testing, validation testing, end-to-end testing, acceptance testing, white and black box testing, decision and path analysis, statistical testing, stress testing, performance testing, regression testing, qualification testing, simulation, and others. The use of automated software testing tools is also to be considered in software testing. Test breadth and accuracy can be increased through the use of test personnel independent of the software design and implementation teams, software peer reviews and inspections of software test procedures and software test results, and employing impartial test witnesses.</code></p>
+
+<p>Fortunately, if you keep your code, tests and records publicly accessible, you are well on your way to independent review!
+(However, occasionally it pays to call in experts to assist, if you are involved in Bitcoin in some professional endeavour.)</p>
+
+<p>Having more diversity of implementations around the common protocol also helps keep everyone's work in check.</p>
+
+<h3>Acting locally - what can we do to strengthen our projects (e.g. Bitcoin Unlimited)</h3>
+
+<p>First, we can (re-)acquaint ourselves with <a href="http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf">IEEE Std 830-1998</a> (IEEE Recommended Practice for Software Requirements Specifications) which gives extremely solid guidance on how to construct good software requirements specs. Of course, applying it is needed, but reading is definitely a first step.</p>
+
+<p>Technical proposals are currently often too informal. This applies to technical BUIPs as well, which still lag behind BIPs or proposal like "ToTheMoon"'s Extension Blocks a little in terms of rigor.</p>
+
+<p>Next up, we need to follow better practices in constructing the software, verifying and validating properly.
+Get the project's test results (records) to be archived in a decentralized way (i.e. in a separate software repository), instead of in <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/411#issuecomment-291995986">ephemeral comment threads on Github</a>.
+Of course, testers should sign off on test evidence in some way. Signed commits in a Git repository would do the trick.</p>
+
+<p>Regression test suites are lacking coverage and need to be extended.
+It not surprising when requirements are lacking - developers tend to interpret everything according to their own whims in that case.</p>
+
+<p>Regression tests should be run automatically and regularly, to catch any bugs that may creep in with future changes.
+Bitcoin projects attract a wide spectrum of practitioners, with different levels of experience etc.
+Even experienced software developers can struggle for quite some time with the complexities of the current (somewhat legacy) codebase.
+During this time, they are apt to make more mistakes.
+Good test coverage is the safety net that's nearly always there <img src="./smileys/smile.png" alt=":-)" /></p>
+
+<p>Currently, BU uses Travis for continuous integration testing on pull requests and merge commits.
+I raised <a href="https://bitco.in/forum/threads/buip052-set-up-dedicated-continuous-integration.2034/">BUIP052</a> specifically to add more test coverage using daily/nightly runs of the full test suite (which is currently only partially exercised by Travis). Nowadays there are a lot of options when it comes to CI services, and they are affordable to even small projects (many offer free time to free software projects).
+Other contributors have pointed out additional ways of approaching the problem, such as build farms with hardware run by project contributors.</p>
+
+<p>A good exercise for a Bitcoin project is to draw up a proper V&amp;V plan describing how it's handled, the infrastructure, what records are produced, etc.
+I haven't seen such a document in any of the Satoshi client projects so far.</p>
+
+<p>If there is anything more frustrating for a developer than not knowing what the overall test status is of the code they are working on, then it is having to wait for a long time for tests to finish. I submitted a little tool to BU and Classic, which can execute Bitcoin's C++ unit tests in parallel on a multi-core machine.</p>
+
+<p><a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/452">https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/452</a></p>
+
+<p>On my workstation this cuts down the time from 199s to TODO seconds, for a full run of all unit tests.
+Practically, it is of course limited by the longest test.
+Still, it helps a bit.</p>
+
+<h4>Footnotes</h4>
+
+<p><a name="footnote1">[1]</a> <a href="https://en.wikipedia.org/wiki/Pysanka">https://en.wikipedia.org/wiki/Pysanka</a> <br>
+Easter egg graphic derived from original art by
+http://artalbum.org.ua/ru/site/license - http://artalbum.org.ua/, Public Domain, <a href="https://commons.wikimedia.org/w/index.php?curid=38482200">https://commons.wikimedia.org/w/index.php?curid=38482200</a>&gt;</p>
+
+<p><a name="footnote2">[2]</a> <a href="http://flosshub.org/system/files/133-136.pdf">http://flosshub.org/system/files/133-136.pdf</a></p>
+
+<p><a name="footnote3">[3]</a> &lt;<a href="https://www.securecoding.cert.org/confluence/pages/viewpage.action?pageId=637">The CERT C++ Coding Standard, 2016 Edition</a>&gt;</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun 16 Apr 2017 02:43:41 CEST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="./tags/musings.html" rel="tag">musings</a>
+
+<a href="./tags/weekly.html" rel="tag">weekly</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
