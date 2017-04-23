@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 3</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170415-weekly-musing-002-1.html" title="freetrader's weekly musings - volume 2" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 3
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170415-weekly-musing-002-1.html">freetrader's weekly musings - volume 2</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #3 - Mr Bitcoin is hungry</h1>
+
+<table class="img"><caption>Japanese Silky Tofu
+       <br>
+       (Kinugoshi Tofu) [1]</caption><tr><td><a href="../../images/kinugoshi_tofu-no-fork.png"><img src="./20170423-weekly-musing-003-1/180x241-kinugoshi_tofu-no-fork.png" width="180" height="154" alt="Japanese Silky Tofu" class="img" /></a></td></tr></table>
+
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>I raised <a href="https://bitco.in/forum/threads/buip051-add-compactblocks-support.2017/">BUIP051</a>, am going to take a close look at porting those changes over from XT during the coming week or two.</p>
+
+<p>Happily, the proposal to spend some money for a better (paid) Travis build service has met with a supportive reception at BU, so I think we are soon going to have the possibility to run longer test suites (up to 120 minutes each - maybe need to break the test suite down into several batches which individually fit in under 2 hrs, or just execute randomly and time out just below 2 hrs).</p>
+
+<p>Parallel execution of regression tests might be helpful. I'm planning to add that feature to BU's rpc-tests.py (Core has had that feature <a href="https://github.com/bitcoin/bitcoin/commit/fa494dec79b9d469b7eb38d2f0b8cf9832cdc398">for a while</a>).</p>
+
+<p>Until then, I've <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/463">pull-requested some minor test runner improvements</a> I made in MVF-BU, to allow execution of single tests with specific arguments, and allow one-off test runs of disabled tests. This should make it a little easier for testers to run disabled tests - now they don't have to edit the rpc-tests.py script code to temporarily enable a test.</p>
+
+<p>Some nice changes from Classic have been <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/460">ported to BU by kyuupichan</a>: the improved command line parameter handling which prevents invalid parameters from being silently ignored at startup.</p>
+
+<h2>BTCfork</h2>
+
+<p>Finally got around to merging the latest Bitcoin Unlimited dev branch changes back into MVF-BU. Turned out to be something like 1200+ commits - who said BU isn't developmentally active? <img src="../../smileys/smile4.png" alt=";-)" /></p>
+
+<p>Unfortunately, Travis is not yet completely happy with my merge - it seems some build environment changes or file movements have broken the test framework.
+My own 32-bit test system also needs to upgrade to a C++11 compiler to handle the upstream compiler requirement changes.
+All in all, these seems like minor things that can be cleaned up fairly quickly - over the course of the next few days.
+After that, MVF-BU will be back on track for further development.</p>
+
+<h2>Extension blocks or bigger regular blocks</h2>
+
+<p>After Gregory Maxwell's recent post on bitcoin-dev, the clamor for UASF SegWit seems to have died down a bit - maybe it's just on the back burner.</p>
+
+<p>Bitcoin Unlimited seems to be within good reach of regular big blocks.</p>
+
+<p><a href="https://github.com/tothemoon-org/extension-blocks/blob/master/spec.md">Extension Blocks</a> looks like another promising idea, but quite a complex undertaking in comparison to straightforward big blocks.</p>
+
+<p>Maybe Mr Bitcoin will place an order for both, and see which one the kitchen can deliver first?</p>
+
+<h4>Footnotes</h4>
+
+<p><a name="footnote1">[1]</a> Original Japanese Silky Tofu image by DryPot (CC-BY-SA-3.0) at <br>
+<a href="https://en.wikipedia.org/wiki/Tofu#/media/File:Japanese_SilkyTofu_%28Kinugoshi_Tofu%29.JPG">https://en.wikipedia.org/wiki/Tofu#/media/File:Japanese_SilkyTofu_%28Kinugoshi_Tofu%29.JPG</a>&gt;</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170415-weekly-musing-002-1.html">freetrader's weekly musings - volume 2</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 23 Apr 2017 19:51:55 CEST</span>
+<!-- Created <span class="date">Sun 23 Apr 2017 20:00:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
