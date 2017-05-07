@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 5</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170430-weekly-musing-004-1.html" title="freetrader's weekly musings - volume 4" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 5
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170430-weekly-musing-004-1.html">freetrader's weekly musings - volume 4</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #5 - Testing, Testing, ...</h1>
+
+<table class="img"><caption>Fixing problems</caption><tr><td><a href="../../images/fixing_problems.png"><img src="../../images/fixing_problems.png" width="312" height="307" alt="Fixing problems" class="img" /></a></td></tr></table>
+
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>I've been testing and raising issues on Github for some failing
+tests that we are troubleshooting. (I guess it <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/476">started</a>
+with the failing <code>pruning.py</code>, but we encountered more
+during recent updates meant to close some post-1.0.1.4 gaps.</p>
+
+<p>Among them:</p>
+
+<ul>
+<li><a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/513">p2p-acceptblock</a></li>
+<li><a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/537">abandonconflict</a></li>
+</ul>
+
+
+<p>I tested another one with sickpig (<a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/518">validateblocktemplate</a>).</p>
+
+<p>Most if not all these test failures were apparently random failures,
+some involving infinite loops.</p>
+
+<p>Random failures can slip through Travis CI undetected, only to surface later.
+This seems to have already happened, based on subsequent investigations.</p>
+
+<p>This is a prime reason to run the <em>full</em> test suite (including extended
+tests) multiple times a day, on as many platforms as possible.
+Fortunately BU's Travis account has been upgraded to a paid one,
+at least this means the project will be able to run more tests.</p>
+
+<h3>Running tests repeatedly</h3>
+
+<p>Our parallel testing wrapper for unit tests has an <code>-r</code> option for
+repeating tests, but our regression test wrapper (rpc-tests.py) currently
+does not. This is something I'd like to enhance, it is frequently needed
+because a lot of failures are not deterministic.</p>
+
+<p>One can of course always write a little shell script.
+I used this one which runs the test repeatedly using a timeout per run,
+logs failures to a temporary file and prints out the total number of
+failures at the bottom.</p>
+
+<pre><code>#!/bin/bash
+TIMEOUT=100 # seconds, need to adapt to specific test
+TEST_COMMAND="qa/pull-tester/rpc-tests.py abandonconflict"
+for i in {1..100}
+do 
+   echo "`date`: start iteration $i"
+   timeout --foreground $TIMEOUT $TEST_COMMAND || echo "this is a failure"
+   killall bitcoind
+done | tee /tmp/testfailures.log | grep -c "this is a failure"
+</code></pre>
+
+<p>Messy, but it works.</p>
+
+<p>Hopefully, an improved rpc-tests.py will do this for us in future,
+and spit out more statistics e.g. average time per run and maybe the
+standard deviation of that.</p>
+
+<h3>Bisections</h3>
+
+<p>Once you know a test is failing randomly on a certain revision, you
+need to find out what introduced the problem.</p>
+
+<p>If you cannot tell easily, then you can usually get some idea by testing
+backwards from a known bad commit (usually the head of the branch you are working off)
+to find the first commit that broke the test, and see what it changed.</p>
+
+<p>If the source of the problem possibly lies back a long time, going back
+over each revision takes a long time. You can try doing a <a href="https://wiki.ubuntu.com/Kernel/KernelBisection">bisection</a>
+which is much quicker (but you need to know a working revision sometime in the past).</p>
+
+<p>I submitted a PR for a helper script that can be used in conjunction
+with <code>git bisect</code> to run a bisection on a test that is failing
+randomly and/or getting stuck in a loop.</p>
+
+<p>I committed the <a href="https://github.com/ftrader/bitcoin-misc-contrib/blob/master/bisection-tools/bisect_probabilistic_with_timeout.sh">original version</a>
+of this script in my personal repo under GPLv3, but I submitted it
+in improved form in <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/532">PR532</a>.
+That PR introduces an additional documentation file with some tips in <code>doc/bug-triage.md</code>.</p>
+
+<p>The script has so far proved quite useful, but it does have limitations,
+for example when the build breaks in some past commits. Be sure to read
+the file header of the script and the mentioned document if you plan to
+use it.</p>
+
+<p>The main benefit is that this script can triage randomly failing and looping tests.
+It can be used in "one-shot" mode without running a bisection, of course,
+just to either</p>
+
+<ul>
+<li>run a test command repeatedly (set a huge timeout if you know the test does not time out)</li>
+<li>catch a test which times out (although you can also use the timeout(1) command in Linux)</li>
+</ul>
+
+
+<h2>parity-bitcoin</h2>
+
+<p>I've never dabbled in Rust before, so I was surprised that it was not too
+difficult to get to a running version of <a href="https://github.com/paritytech/parity-bitcoin">parity-bitcoin</a>.
+Fortunately I did have a little help though from Christian Nyumbayire
+(Chritchens on the forum and Reddit). He is working on an adaptation of
+Parity that he called 'parity-unlimited' and is currently taking shape.
+Initial steps will hopefully demonstrate that parity can handle a hardcoded
+bigger block size (e.g. 2MB) well.</p>
+
+<p>Here is his announcement thread, in which he also left valuable information
+on how to install Parity (some information on installing dependencies got me
+past initial hurdles).</p>
+
+<p>https://bitco.in/forum/threads/multi-implementation-client-development.2092/</p>
+
+<p>I was able to successfully run the unmodified parity-bitcoin unit test suite (one
+test was ignored but all others passed).
+Unfortunately, my initial attempt to run the regression test suite failed -
+it got stuck with bitcoinj receiving an empty block header.</p>
+
+<p>Whether this was a problem with my build (I did not build the 'release' build)
+or still a bug in the regression tests is something that future trials will
+show.</p>
+
+<p>It is already promising that it got very far in the regression tests.
+Hopefully it can soon become a big-block capable neighbor of Bitcoin Unlimited
+on the actual network.</p>
+
+<h2>BTCfork</h2>
+
+<p>I managed to resolve the little issues that were troubling Travis, and
+so complete the merge of recent upstream BU 'dev' into <a href="https://github.com/BTCfork/hardfork_prototype_1_mvf-bu">MVF-BU</a>.</p>
+
+<p>Two long running tests (excessive.py and parallel.py) had to be moved to the
+'extended' set of tests which are not automatically run.
+This is because BTCfork still operates on a free Travis instance with a
+cutoff time of 50 minutes.</p>
+
+<p>The fork code introduces some long-running tests of its own, and these have
+to be tested more frequently. However, when touching code that modifies
+block handling, it will be necessary to manually run the relocated tests,
+and occasionally swap them into Travis for testing across different
+build platforms (which I don't have).</p>
+
+<p>I will be starting work on a checkpoint feature next, but more details
+about that once it is ready.</p>
+
+<h2>Bitcoin-ABC</h2>
+
+<p>BU contributor deadalnix created a repository of a Bitcoin Core 0.14 client
+which has the SegWit and RBF removed.</p>
+
+<p>This can serve as a basis for future Adjustable Blocksize Cap modification,
+hence he called it: <a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Bitcoin-ABC</a>!</p>
+
+<p>I have started assisting on this effort by helping to resolve some failing
+regression tests.  Most of the issues appear due to incomplete removal
+of SegWit test code, and should not take too long to clean up.</p>
+
+<p>It would be exciting to have a recent Core with a configurable limit!
+Any volunteers are more than welcome to assist this effort.</p>
+
+<h4>Footnotes</h4>
+
+<p><a name="footnote1">[1]</a> Fixings Problems comic thanks to https://xkcd.com/1739/ (CC BY-NC 2.5)</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170430-weekly-musing-004-1.html">freetrader's weekly musings - volume 4</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 07 May 2017 22:18:04 CEST</span>
+<!-- Created <span class="date">Sun 07 May 2017 22:22:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
