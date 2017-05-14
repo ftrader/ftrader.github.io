@@ -73,8 +73,8 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">6</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170507-weekly-musing-005-1.html" title="20170507-weekly-musing-005-1">7</a></td>
-        <td class="month-calendar-day-future Monday">8</td>
+        <td class="month-calendar-day-link Sunday"><a href="./posts/weekly_musings/20170507-weekly-musing-005-1.html" title="20170507-weekly-musing-005-1">7</a></td>
+        <td class="month-calendar-day-nolink Monday">8</td>
         <td class="month-calendar-day-nolink Tuesday">9</td>
         <td class="month-calendar-day-nolink Wednesday">10</td>
         <td class="month-calendar-day-nolink Thursday">11</td>
@@ -82,8 +82,8 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">13</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-nolink Sunday">14</td>
-        <td class="month-calendar-day-nolink Monday">15</td>
+        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170514-weekly-musing-006-1.html" title="20170514-weekly-musing-006-1">14</a></td>
+        <td class="month-calendar-day-future Monday">15</td>
         <td class="month-calendar-day-nolink Tuesday">16</td>
         <td class="month-calendar-day-nolink Wednesday">17</td>
         <td class="month-calendar-day-nolink Thursday">18</td>
@@ -121,9 +121,9 @@ freetrader's blog
 </li><li><span class="biggestPC"><a href="./tags/Bitcoin.html">Bitcoin</a></span>
 </li><li><span class="smallPC"><a href="./tags/HFP0.html">HFP0</a></span>
 </li><li><span class="smallPC"><a href="./tags/fork.html">fork</a></span>
-</li><li><span class="normalPC"><a href="./tags/musings.html">musings</a></span>
+</li><li><span class="bigPC"><a href="./tags/musings.html">musings</a></span>
 </li><li><span class="smallestPC"><a href="./tags/personal.html">personal</a></span>
-</li><li><span class="normalPC"><a href="./tags/weekly.html">weekly</a></span>
+</li><li><span class="bigPC"><a href="./tags/weekly.html">weekly</a></span>
 </li></ul>
 
 
@@ -139,6 +139,139 @@ freetrader's blog
 
 <div  class="feedlink">
 
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/weekly_musings/20170514-weekly-musing-006-1.html">freetrader&#x27;s weekly musings - volume 6</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<h1>Weekly musing #6 - And up again...</h1>
+
+<table class="img"><caption>Roly Poly Toys</caption><tr><td><a href="./images/rolypolytoys-grey.png"><img src="./images/rolypolytoys-grey.png" width="553" height="229" alt="Roly Poly Toys" class="img" /></a></td></tr></table>
+
+
+<h2>Bitcoin Unlimited</h2>
+
+<h3>v1.0.2.0 release (fix for 2nd memory exhaustion incident)</h3>
+
+<p>Another release (1.0.2.0), fixing another Xthin exploitable bug similar to the previous memory exhaustion issue.
+Again, the problem and a workaround were quickly identified. Having <code>use-thinblocks=0</code> disables Xthin more effectively since 1.0.1.4 - fortunately that worked and probably protected quite a few nodes. Still, having 1/3 of the BU nodes killed again obviously shakes confidence.</p>
+
+<p>A lot of fixes were brought together for the 1.0.2.0 release, which made it take longer.
+Good things take time, but bad code can waste a lot of time. I guess BU is paying the price for changing p2p protocol code without sufficient review and testing in the early days.
+While some of the easily exploited holes have now been closed, there are some worries remaining, like the risk of someone producing relatively cheap collisions, or the memory limit while reconstructing thinblocks being perhaps a little higher than needed.</p>
+
+<p>Still, my feeling is BU is getting more robust with each attack. However, recovery was a little more protracted with this one, as it tool longer for the official binaries to be released.
+Source code fixes were available in PR form quite early on.</p>
+
+<p>There was however again a percentage of users who probably will not come back to BU because of this incident. Classic seems to have made some small gains (not visible on chart below).</p>
+
+<table class="img"><caption>nodecounter.com recent Bitcoin Unlimited nodes statistics</caption><tr><td><a href="./images/20170514_bu_nodes_nodecounter_recent.png"><img src="./images/20170514_bu_nodes_nodecounter_recent.png" width="1125" height="387" alt="nodecounter.com recent Bitcoin Unlimited nodes statistics" class="img" /></a></td></tr></table>
+
+
+<p>With the aid of a little script from thezerg, I managed to get my BU gitian build working for this release, and was thus able to sign the 1.0.2.0 checksums.
+I think I will need to abandon my gitian build VM though, it seems just to slow compared to others.</p>
+
+<h3>pruning.py problems not local to BU</h3>
+
+<p>After getting such poor pass rates on the pruning test, I executed it on Classic and Core latest builds as well.</p>
+
+<p>On Classic, it went into a loop, which I stopped after several hours.</p>
+
+<p>On Core, it timed out as well. I raised <a href="https://github.com/bitcoin/bitcoin/issues/10393">Github issue 10393</a> which has yet to receive a response.</p>
+
+<h3>Miscellaneous</h3>
+
+<p>I opened an issue for the <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/557">overly verbose keypool traces</a> in the log file.
+These have been bugging myself and others - they often lead to questions whether something is wrong.
+I have not decided which debug flag to use for them.</p>
+
+<h3>BUIPs</h3>
+
+<p>There are some interesting coordination-related proposals which have been raised on the forum (in Draft BUIP form):</p>
+
+<ul>
+<li>Peter Rizun's <a href="https://bitco.in/forum/threads/buip055-increase-the-block-size-limit-at-a-fixed-block-height.2103/">BUIP055</a></li>
+<li>Tomas van der Wansem's <a href="https://bitco.in/forum/threads/increase-the-block-size-limit-triggered-by-a-support-threshold.2111/">threshold-based BUIP</a> (no number yet)</li>
+<li>Sancho Panza's <a href="https://bitco.in/forum/threads/buipxxx-add-bip135-support-bip9.2114/">BUIP to add BIP135</a></li>
+</ul>
+
+
+<p>I'm looking forward to the upcoming voting - I will raise BUIP038 too since it did not get quorum the time before last, and I think that it should be put to the vote now that membership and participation have increased. I am undecided on whether to make it into a new BUIP with a toggle to enable the sticky gate instead of just removing it as BUIP038 proposed. If anyone has strong feelings about that, I'd like to hear about them!</p>
+
+<h2>Bitcoin-ABC</h2>
+
+<p>The failing regression tests have been sorted out - ABC is now passing its Travis tests.</p>
+
+<ul>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/1">Removed SegWit regression tests</a></li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/2">Fixed p2p-compactblocks.py</a></li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/4">Fixed wallet transaction check which failed lots of regtests</a></li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/5">Removed leftover bumpfee code</a></li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/11">Removed replace-by-fee.py</a></li>
+<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/15">Fixed maxuploadtarget.py</a></li>
+</ul>
+
+
+<p>While looking at fixing the failing nulldummy.py test, I <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/6">considered</a> removing the NULLDUMMY support entirely.
+It is a soft-fork which is actually functionally separate from SegWit, but deployed on the same bit!
+This is a bit unorthodox, but on the mailing list Johnson Lau defended this with the reason that it would reduce testing effort for SegWit not to handle it as an independent soft-fork.</p>
+
+<p>After raising <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/issues/3">an issue</a> to decide on the right course of action, I discussed it with deadalnix, who was in favor of retaining it for now.</p>
+
+<p>I have created an ABC branch (on my personal fork repo) where I have executed a more aggressive removal of this currently unused feature and its test. I will be cherry-picking from the mainline ABC repo, trying to keep it clean of features which are not yet present or needed in today's Bitcoin Core, and focusing only on the basic blocksize scaling part.</p>
+
+<p>As part of resolving the failing tests, I did 10 runs of the '-extended' regression test suite, excluding the 'pruning' test which takes too long.
+The results were interesting - not all tests are passing reliably on my (old) system.
+Times are in seconds, and only the times of passes are counted for mean/stdev statistics.</p>
+
+<table class="img"><caption>Extended regression test status over 10 runs on Bitcoin-ABC</caption><tr><td><a href="./images/20170513_abc-initial-test-overview.png"><img src="./images/20170513_abc-initial-test-overview.png" width="731" height="1377" alt="Extended regression test status over 10 runs on Bitcoin-ABC" class="img" /></a></td></tr></table>
+
+
+<p>The next step will be adding a true Adjustable Blocksize Cap. This will be where the fun really starts!</p>
+
+<p>If anyone is interested in assisting with the ABC effort, contact us or submit PRs / issues directly on Github!</p>
+
+<h2>parity-unlimited</h2>
+
+<p>There is some more developer interest for giving parity support for bigger blocks.  Personally, I did not find time to continue test experiments with parity-bitcoin or parity-unlimited, but it's been nice to chat with other people on the BU slack about it.</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Sun 14 May 2017 23:00:00 CEST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="./tags/musings.html" rel="tag">musings</a>
+
+<a href="./tags/weekly.html" rel="tag">weekly</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
