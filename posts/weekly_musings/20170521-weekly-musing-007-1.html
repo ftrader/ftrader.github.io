@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 7</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170514-weekly-musing-006-1.html" title="freetrader's weekly musings - volume 6" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 7
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170514-weekly-musing-006-1.html">freetrader's weekly musings - volume 6</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #7 - User Activated System Failure?</h1>
+
+<p>It will be interesting to watch as UASF activates on August 1.</p>
+
+<p>Bitcoin should be a robust protocol on <a href="https://en.wikipedia.org/wiki/Layer_8">layers 8 and above</a> <img src="../../smileys/smile.png" alt=":-)" /></p>
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>Hopefully kyuupichan's port of the Classic parameter fixes makes it into BU soon.
+After reviewing it, I like it a lot - the changes should make BU safer to operate.
+It did show however, that a single reviewer does not catch everything - I missed a reference to 'Bitcoin Classic'!</p>
+
+<p>As the time approaches for another exciting round of votes in BU, I have added two BUIPs which I feel can help:</p>
+
+<ul>
+<li><a href="https://bitco.in/forum/threads/buip058-dynamic-checkpoints.2135/">BUIP058</a> (dynamic checkpoints)</li>
+<li><a href="https://bitco.in/forum/threads/buip059-make-sticky-gate-optional-disabled-by-default.2137/">BUIP059</a> (make sticky gate optional)</li>
+</ul>
+
+
+<h3>Dynamic checkpoints</h3>
+
+<p>This would offer a general way to address re-org risk when a transition from one blocksize Schelling point to another happens.
+Currently of course we face the 1MB barrier, but maybe in the (far?) future we face a 32MB barrier etc.</p>
+
+<p>Eventually, dynamic checkpoints could be created when certain conditions on the chain are met (case in point: when the first &gt;1MB block is generated).</p>
+
+<p>Short term, they could offer some resistance against massive re-orgs caused by an attacker.
+One could conceivably add regular (automated) dynamic checkpointing (e.g. every day, replace the most recent dynamic checkpoint with a new block that is at least a week deep).</p>
+
+<h3>Make "sticky gate" optional</h3>
+
+<p>In retrospective, I think BUIP038 may have lost support because it did not offer users the choice of running with the "sticky gate" feature.
+It could also have been bad luck / apathy during that particular voting cycle.
+Not everyone feels able to vote on such technical issues - this is also part of the problem with increasing complexity - which is what I think may have also killed the counter-proposal, BUIP041.</p>
+
+<p>One thing remains clear: the "sticky gate" was successfully exploited on social media to paint BU in a negative light, using the speculated "median EB attack" which hopes to divide the network by producing a series of larger blocks. Having the feature disabled by default would make BU's "Emergent Consensus" default logic slightly easier to grasp, and would also make it harder to attack in the proposed way.</p>
+
+<h2>Bitcoin-ABC</h2>
+
+<p>I've created the "dirty" implementation of a <a href="https://github.com/ftrader-bitcoinabc/bitcoin-abc/commits/feature/2mb_test-dirty">2MB-capable Core</a>, albeit it does scale block max sigops correctly yet (it allows up to 40K sigops per block instead of scaling at 20K per MB).
+It does however pass the existing test suite.</p>
+
+<p>I've not pushed my private ABC branch yet, as there is still work to be done on it.</p>
+
+<h2>BTCfork</h2>
+
+<p>I am planning to rebase on latest BU dev again. It would be good to test out dynamic checkpointing in a feature branch of an up-to-date MVF-BU.</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170514-weekly-musing-006-1.html">freetrader's weekly musings - volume 6</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 21 May 2017 23:42:55 CEST</span>
+<!-- Created <span class="date">Sun 21 May 2017 23:50:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
