@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 8</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170521-weekly-musing-007-1.html" title="freetrader's weekly musings - volume 7" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 8
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170521-weekly-musing-007-1.html">freetrader's weekly musings - volume 7</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #8 - Keep calm and fork</h1>
+
+<table class="img align-right"><caption>Fork at Vevey, Lake Geneva</caption><tr><td><a href="../../images/vevey-2104986_540.jpg"><img src="../../images/vevey-2104986_540.jpg" width="540" height="720" alt="Fork at Vevey, Lake Geneva" class="img" /></a></td></tr></table>
+
+
+<h2>BTCfork</h2>
+
+<p>A rebase on very recent BU <code>dev</code> branch has been completed.</p>
+
+<p>I learned the painful lesson that it is much easier just to merge in the changes from upstream as opposed to actually rebasing (in Git's sense) all the MVF work, which would necessitate a forced push on MVF-BU's <code>master</code> (default) branch. That would be disruptive to those who have checkouts of MVF-BU (not many, I suppose, but it would be bad practice).</p>
+
+<p>Thinking about requirements for a <a href="https://np.reddit.com/r/btcfork/comments/6cn7ye/the_silbert_accord_and_its_implications/">UASF counter-fork</a> to UASF will see me adding a few requirements to the MVFs.</p>
+
+<p>One of them is probably time-based forking - in order to fork exactly on an unknown block height which corresponds to the median time activation criterion of BIP148 or similar proposals. This would make MVFs capable of forking on either block height OR a chosen time, whichever comes first.</p>
+
+<p>One could set the block height to a very high value if one did not want to use it, to let the time-based forking take precedence.</p>
+
+<p>I've held off on implementing time-based forking up to now since it comes with a few more complications.
+The client cannot tell for certain when the final pre-fork block has been received, and this makes things like changing to the new consensus rules and performing wallet backups harder. But it seems that flag day forks like UASF require a forking trigger in MVF to be able to fork at exactly the same time, so as to create the least difference between the fork blockchain and the legacy chain.</p>
+
+<p>A rebase of MVF-Core is still outstanding. The objective will be to rebase on Core 0.14 minus SegWit/RBF, but with Adjustable Blocksize Cap.</p>
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>Apart from reviews and minor fixes to some extended tests, I've uploaded my eligible BUIPs for the coming voting round.</p>
+
+<p>I am keen to see the new voting system in action, although it is becoming clear that it will need a bit of handholding by its creator for the first session. This is of course normal. So far, I like what I've seen!
+There are some areas that may need small improvement in future, e.g. in management of unpublished proposals, and dealing with users who have lost their keys and need to revoke them. The latter part may be a bit tricky! I would recommend BU users to always keep a separate PGP key for BU signing purposes, so that they could use that to revoke the Bitcoin key in a pinch.</p>
+
+<h2>References</h2>
+
+<p>[1] Image of Vevey fork in Lake Geneva derived from public domain (CC0) work: <br>
+https://pixabay.com/en/vevey-lake-fork-switzerland-museum-2104986/</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170521-weekly-musing-007-1.html">freetrader's weekly musings - volume 7</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 28 May 2017 23:38:24 CEST</span>
+<!-- Created <span class="date">Sun 28 May 2017 23:45:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
