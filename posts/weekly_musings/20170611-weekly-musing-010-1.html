@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>freetrader&#x27;s weekly musings - volume 9</title>
+<title>freetrader&#x27;s weekly musings - volume 10</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
@@ -17,11 +17,9 @@
 
 
 
-<link rel="prev" href="./20170604-weekly-musing-009-1.html" title="freetrader's weekly musings - volume 10" />
-
 <link rel="up" href="../../posts.html" title="posts" />
 
-<link rel="next" href="./20170528-weekly-musing-008-1.html" title="freetrader's weekly musings - volume 8" />
+<link rel="next" href="./20170604-weekly-musing-009-1.html" title="freetrader's weekly musings - volume 9" />
 
 
 </head>
@@ -42,7 +40,7 @@
 
 </span>
 <span class="title">
-freetrader&#x27;s weekly musings - volume 9
+freetrader&#x27;s weekly musings - volume 10
 
 </span>
 </span>
@@ -57,19 +55,13 @@ freetrader&#x27;s weekly musings - volume 9
 <div class="trails">
 <div class="trail">
 
-<span class="trailprev">
-<span class="trailarrow">←</span>
-<a href="./20170604-weekly-musing-009-1.html">freetrader's weekly musings - volume 10</a>
-<span class="trailsep">|</span>
-</span>
-
 <span class="trailup">
 <a href="../../posts.html">posts</a>
 </span>
 
 <span class="trailnext">
 <span class="trailsep">|</span>
-<a href="./20170528-weekly-musing-008-1.html">freetrader's weekly musings - volume 8</a>
+<a href="./20170604-weekly-musing-009-1.html">freetrader's weekly musings - volume 9</a>
 <span class="trailarrow">→</span>
 </span>
 
@@ -85,65 +77,40 @@ freetrader&#x27;s weekly musings - volume 9
 <div id="pagebody">
 
 <div id="content">
-<h1>Weekly musing #9 - The freedom to choose your own cap</h1>
-
-<table class="img"><caption>UASF? Asics, baby.</caption><tr><td><a href="../../images/H9fnhTG-hashpower_matters.png"><img src="../../images/H9fnhTG-hashpower_matters.png" width="617" height="676" alt="UASF? Asics, baby." class="img" /></a></td></tr></table>
-
-
-<h2>Bitcoin Unlimited</h2>
-
-<p>Voting is over, and the results for this round of BUIPs and new member applications is in.
-Congratulations to the new members!
-The new system was quite pleasant to use. I hope it will continue to get improvements.
-One that most of us would probably like is batched voting, so one doesn't have to sign for every issue individually.</p>
-
-<p>To those applicants who did not get in this time, I hope you will apply again and participate in the meantime!
-Some clearly did not make it in because existing members abstained or voted in low numbers, which troubles me a little.
-I think 21/49 voter turnout is not that great - certainly room for improvement.</p>
-
-<h3>Improvement Proposals</h3>
-
-<p>On the BUIP side, I am happy that BU has passed the BUIP026 to offer <a href="https://bitco.in/forum/threads/buip026-passed-bounties-for-software-exploits.1970/">bounties for exploitable bugs</a>.</p>
-
-<p>CompactBlocks were accepted by a nice majority, so they will become reality in BU!
-This should lead to bandwidth savings all around.
-With BU's network code undergoing big refactorings on the development branch, it will be a bit of a challenge to develop, but nothing insurmountable. Existing tests from Core and XT can hopefully be re-used with minor adaptations.</p>
-
-<p>I'm also excited about BUIP052 - this should get the project a separate Continuous Integration service for daily tests of the whole test suite. BU contributor awemany has been investigating fuzz testing, which would be a good thing to include on such daily tests.</p>
-
-<p>A bit disappointing is that BUIP053 and BUIP054 did not reach quorum, and had to be closed despite quite solid majorities in favor of these proposals. It was just not enough this time around.</p>
-
-<p>BUIP053 (Tweakable DoS responses) in particular is one I had high hopes for in terms of moving us away from a relatively static and inflexible scoring/banning design, towards something that places more power in the hands of users and reduces the impact of (potentially bad) developer decisions.</p>
-
-<p>Also great news is that both BUIP055 (hard fork in near future) and BUIP056 (support-threshold triggered block size increases) were passed. The first one indicates that membership clearly recognizes the urgent need to act in offering a definite hard fork to the market, especially in light of the threat of UASF.
-BUIP056 appears a good way to reach consensus within the EB signaling framework pioneered by BU but which is being adopted by other clients such as Classic and hopefully more in future.</p>
-
-<p>BUIP057 (BIP135 support) could be useful for future upgrade deployments, due to its flexibility in configuring activation thresholds and grace periods for proposed forking changes (whether soft or hard).</p>
-
-<h3>Nolnet reboot</h3>
-
-<p>Initial testing on BU's rebooted Nolnet (no-limits testnet) suggests there could still be issues related to unwanted node banning during block header synchronisation.</p>
-
-<p>But the rebooted parameters of the network will ensure that Nolnet addresses are different from ordinary Bitcoin addresses, and so avoid possible mistakes that could result in some financial loss.
-Nolnet will also reset to minimum difficulty now, so that locking out testers by raising the difficulty to a very high value will not be possible so easily (at least, not for long periods).</p>
-
-<h2>BTCfork</h2>
-
-<p>The new Nolnet settings need to be integrated into MVFs, as I plan to have the MVF's be able to participate in fork tests, also w.r.t. BUIP055.</p>
-
-<p>I found an embarrasing bit shifting bug in the replay protection code. Thanks go to Tom Harding for inspiring me to look over it again.
-Funny how one can get inspired to look carefully at one's code when someone else is interested in it too <img src="../../smileys/smile.png" alt=":-)" /></p>
-
-<p>Another small change that seemed prudent, was to bypass the MVF's adjusted difficulty retargeting code if the user specified that the difficulty was not to be reset at the fork activation. So now, if diffdrop=1, only the old difficulty code path is used.
-I had not really thought much about minority forks which want to keep the difficulty the same, but if there are such, then it's better to carry on running the existing code.</p>
+<h1>Weekly musing #10 - Learning the ABC's</h1>
 
 <h2>Bitcoin ABC</h2>
 
-<p>Still working on the ABC functionality - have been mostly reviewing changes by the project lead.</p>
+<p>Bitcoin ABC - short for Adjustable Blocksize Cap , is a big-block capable
+client based on Core 0.14.1 that is progressing in development and gaining
+more contributors and code reviewers.</p>
 
-<h2>References</h2>
+<p>Parts of the main functionality (being able to adjust the block size cap through a
+configuration option) have now been implemented for the command line client.
+Others remain to be added, for example being able to display its accepted block size
+limit in the well-known /EBx/ format used by BU and Classic.</p>
 
-<p>[1] Image of Asics cap: public domain (CC0) by freetrader <a href="mailto:freetrader@tuta.io">&#x66;&#114;&#101;&#x65;&#x74;&#114;&#x61;&#100;&#101;&#x72;&#64;&#x74;&#117;&#x74;&#x61;&#46;&#105;&#111;</a> <br></p>
+<p>A version of ABC should be out for testing in the next few weeks!</p>
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>A specification for a hard fork release along the lines of BUIP 055 is taking shape.
+I have had the pleasure of collaborating with various developers and stakeholders
+in drafting this, and it is nearing completion.</p>
+
+<p>Many refinements have been made over BUIP 055.</p>
+
+<p>For example, there is provision for bi-drectional replay protection, and protection
+against re-organization by the legacy chain.</p>
+
+<h2>BTCfork</h2>
+
+<p>With a wide variety of projects rallying around the idea of a near-term HF,
+elements of BTCfork's MVF may come in useful for implementors of other clients.</p>
+
+<p>In particular, clients targeted at end users might benefit from the automatic wallet
+backup functionality written by redmarlen (a fellow BU developer too).
+This could be integrated into other fork clients quiet easily.</p>
 
 </div>
 
@@ -161,19 +128,13 @@ I had not really thought much about minority forks which want to keep the diffic
 <div class="trails">
 <div class="trail">
 
-<span class="trailprev">
-<span class="trailarrow">←</span>
-<a href="./20170604-weekly-musing-009-1.html">freetrader's weekly musings - volume 10</a>
-<span class="trailsep">|</span>
-</span>
-
 <span class="trailup">
 <a href="../../posts.html">posts</a>
 </span>
 
 <span class="trailnext">
 <span class="trailsep">|</span>
-<a href="./20170528-weekly-musing-008-1.html">freetrader's weekly musings - volume 8</a>
+<a href="./20170604-weekly-musing-009-1.html">freetrader's weekly musings - volume 9</a>
 <span class="trailarrow">→</span>
 </span>
 
@@ -202,8 +163,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Sun 11 Jun 2017 23:01:09 CEST</span>
-<!-- Created <span class="date">Sun 04 Jun 2017 23:59:00 CEST</span> -->
+Last edited <span class="date">Sun 18 Jun 2017 21:54:20 CEST</span>
+<!-- Created <span class="date">Sun 11 Jun 2017 23:32:00 CEST</span> -->
 </div>
 
 </div>
