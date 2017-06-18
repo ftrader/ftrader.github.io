@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 11</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170611-weekly-musing-010-1.html" title="freetrader's weekly musings - volume 10" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 11
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170611-weekly-musing-010-1.html">freetrader's weekly musings - volume 10</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #11 - Homework</h1>
+
+<table class="img"><caption>Bitcoin Core learns about an Adjustable Blocksize Cap</caption><tr><td><a href="../../images/chalkboard1-abc-small.jpg"><img src="../../images/chalkboard1-abc-small.jpg" width="504" height="334" alt="Bitcoin Core learns about an Adjustable Blocksize Cap" class="img" /></a></td></tr></table>
+
+
+<h2>Bitcoin ABC</h2>
+
+<p>Work is progressing towards the Bitcoin ABC implementation.
+Already it was able to digest blocks slightly larger than 8MB on BU's no-limits testnet.
+In regression tests, sizes up to 16MB have not posed a problem.</p>
+
+<p>Scaling Bitcoin Core may not be as simple as adjusting a single constant, but ABC proves it can be done.</p>
+
+<h2>UAHF</h2>
+
+<p>The release of the UAHF contingency plan [3] and the accompanying technical specification [4] marked a decisive answer to the threat posed to Bitcoin's security by BIP-148 (UASF).</p>
+
+<p>ABC adaptations for the counter HF to the upcoming UASF are in an advanced stage and expected to be ready for validation soon.</p>
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>BU is working on a UAHF-compatible specification [5]. It is provisionally called 'BUIP-HF'.
+Development is going to be channeled through the 'buip-hf' branch on my Github repository,
+from where I will feed Pull Requests back to BU.</p>
+
+<p>A <a href="https://github.com/ftrader-bitcoinunlimited/BitcoinUnlimited/blob/buip-hf/doc/buip-hf.md">guidance document</a> has been created for contributing BU developers.</p>
+
+<p>Preparations are also underway for another point release of BU prior to a major release later this year which should bring most of the 'dev' branch changes over to 'release'.</p>
+
+<h2>BTCfork MVF</h2>
+
+<p>I'm considering adapting the SegWit trigger condition of the MVF's to take into account the planned SegWit2x activation conditions (which seem to have swung in favor of BIP-91 now).
+Still to be decided, but my stance is unchanged - in the event of SegWit activating on the main chain, there should be a spin-off to provide a SegWit-free alternative.
+This could be UAHF, but since that is planned to activate some hours after UASF, it could make sense to activate an earlier spin-off at the same time as UASF.</p>
+
+<h2>References</h2>
+
+<p>[1] Image of blackboard derived from https://commons.wikimedia.org/w/index.php?curid=36633029 <br>
+by Raysonho @ Open Grid Scheduler / Grid Engine - own work, CC0</p>
+
+<p>[2] Image of academic with square cap derived from https://commons.wikimedia.org/w/index.php?curid=14939026 <br>
+by Gardner Cotrell Leonard - “Academic Costume.” in A Cyclopedia of Education, edited by Paul Monroe, 17, New York: The Macmillan Company, 1911., Public Domain</p>
+
+<p>[3] <a href="https://blog.bitmain.com/en/uahf-contingency-plan-uasf-bip148/">UAHF: A contingency plan against UASF (BIP148)</a></p>
+
+<p>[4] <a href="https://github.com/Bitcoin-UAHF/spec/uahf-technical-spec.md">UAHF Technical Specification</a></p>
+
+<p>[5] <a href="https://github.com/BitcoinUnlimited/BUIP/blob/master/BUIP-HF/uahf-technical-spec.md">BUIP-HF Technical Specification</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170611-weekly-musing-010-1.html">freetrader's weekly musings - volume 10</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 18 Jun 2017 23:34:43 CEST</span>
+<!-- Created <span class="date">Sun 18 Jun 2017 23:40:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
