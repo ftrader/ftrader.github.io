@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 12</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170618-weekly-musing-011-1.html" title="freetrader's weekly musings - volume 11" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 12
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170618-weekly-musing-011-1.html">freetrader's weekly musings - volume 11</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #12 - Gearing up for release</h1>
+
+<h2>Final touches on ABC</h2>
+
+<p><a href="https://github.com/bitcoinabc/bitcoinabc">Bitcoin ABC</a> is a modified version of Bitcoin Core with a user-configurable
+maximum blocksize, i.e. an Adjustable Blocksize Cap (hence "ABC").</p>
+
+<p>It is based on Core 0.14.1, and implements the <a href="https://github.com/Bitcoin-UAHF/spec/uahf-technical-spec.md">UAHF specification</a>.
+The source code and development can be found at https://reviews.bitcoinabc.org .</p>
+
+<p>We've been very busy getting this to near release so far.
+There are a few minor finishing touches remaining on the code, but it's almost feature complete.</p>
+
+<p>In a follow-up post I'd like to do a walk-through post of the changes at some stage, but this requires reformatting the baseline (the Core 0.14.1 commit where ABC branched off) so that we can cleanly compare what was built on top.</p>
+
+<p>The difference looks bigger than it really is in terms of code changes, because nearly the entire codebase has been put through clang-format to clean up the source code.
+This obscures the significant functional changes to an extent.
+A <code>git diff --stat</code> shows 508 changed files so far - that includes files that were newly added (e.g. ABC tests) and files that were removed (e.g. those related purely to SegWit).</p>
+
+<p>Re-formatting the baseline 0.14.1 with the same style rules to get a clean comparison requires some touch-ups.
+This is because some sections in ABC were protected from clang-format's modifications.
+There are also manual formatting actions to improve layouting of comments, although these are easy to ignore.
+Overall, there were 337 commits since development on top of Core commit 964a185cc began.</p>
+
+<p>It could be helpful to mark the functional changes related to UAHF with their respective requirements.</p>
+
+<h2>Test framework issues</h2>
+
+<p>We have identified what is likely an issue with the Python test framework's handling of peer messages.</p>
+
+<p>During tests with large blocks, the test framework's mininode may run into buffering problems on the received data, which often leads to test failure.
+This only seems to happen towards the end of one big-block test at the moment, and there is a workaround to reduces the chance of this happening.</p>
+
+<p>However, it is very likely that we need to re-work the test framework's message buffering and processing if we want to be able to do very-large-block tests.</p>
+
+<p>Perhaps this played a role in previous tests where we struggled to test &gt; 16MB blocks.</p>
+
+<p>On testnet3, the forked client has produced blocks over 15MB already which were well received by its peers.</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170618-weekly-musing-011-1.html">freetrader's weekly musings - volume 11</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sun 25 Jun 2017 23:51:08 CEST</span>
+<!-- Created <span class="date">Sun 25 Jun 2017 23:55:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
