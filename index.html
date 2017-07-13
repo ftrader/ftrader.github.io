@@ -82,12 +82,12 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">8</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170709-weekly-musing-014-1.html" title="20170709-weekly-musing-014-1">9</a></td>
-        <td class="month-calendar-day-future Monday">10</td>
+        <td class="month-calendar-day-link Sunday"><a href="./posts/weekly_musings/20170709-weekly-musing-014-1.html" title="20170709-weekly-musing-014-1">9</a></td>
+        <td class="month-calendar-day-nolink Monday">10</td>
         <td class="month-calendar-day-nolink Tuesday">11</td>
         <td class="month-calendar-day-nolink Wednesday">12</td>
-        <td class="month-calendar-day-nolink Thursday">13</td>
-        <td class="month-calendar-day-nolink Friday">14</td>
+        <td class="month-calendar-day-this-day Thursday"><a href="./posts/bitcoin_abc/20170713-bitcoin-abc-0001-1.html" title="20170713-bitcoin-abc-0001-1">13</a></td>
+        <td class="month-calendar-day-future Friday">14</td>
         <td class="month-calendar-day-nolink Saturday">15</td>
     </tr>
     <tr>
@@ -126,7 +126,8 @@ freetrader's blog
 <p><a href="./tags.html">Tags</a>:</p>
 
 <ul class="list">
-<li><span class="smallestPC"><a href="./tags/BTCfork.html">BTCfork</a></span>
+<li><span class="smallestPC"><a href="./tags/ABC.html">ABC</a></span>
+</li><li><span class="smallestPC"><a href="./tags/BTCfork.html">BTCfork</a></span>
 </li><li><span class="biggestPC"><a href="./tags/Bitcoin.html">Bitcoin</a></span>
 </li><li><span class="smallestPC"><a href="./tags/HFP0.html">HFP0</a></span>
 </li><li><span class="smallestPC"><a href="./tags/fork.html">fork</a></span>
@@ -148,6 +149,170 @@ freetrader's blog
 
 <div  class="feedlink">
 
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/bitcoin_abc/20170713-bitcoin-abc-0002-1.html">freetrader&#x27;s ABC dispatches - volume 2</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<h1>Signatures of second Bitcoin ABC binary release (12 July 2017)</h1>
+
+<p>Linux, OSX and Windows Binaries for the 0.14.2 version have been built by deadalnix and myself using gitian (reproducible builds).
+I confirm that the checksums of my build products matched the ones he obtained.
+Below is a signed copy of my checksums:</p>
+
+<p>The binaries can be obtained at <a href="https://download.bitcoinabc.org/0.14.2/">https://download.bitcoinabc.org/0.14.2/</a> .</p>
+
+<pre><code>-----BEGIN BITCOIN SIGNED MESSAGE-----
+Comment: Signed by Bitcoin Armory v0.93.2
+
+816ea648e33fdcb79ae1b0c9b25f56b1af5cfa07219c7af8e2429e4373349859  bitcoin-0.14.2-aarch64-linux-gnu-debug.tar.gz
+743862db46afbbe08dd37b0821a7808c862c99b971c331dba98c0f9eaa98501e  bitcoin-0.14.2-aarch64-linux-gnu.tar.gz
+c7d00f454b59ef838f35a73a3af72464134b2c320656627d5fc4f5965ad4d966  bitcoin-0.14.2-arm-linux-gnueabihf-debug.tar.gz
+5f000ab1af610e725ca52c7e08aec699471d177c9d86c38287ef374f6d80f419  bitcoin-0.14.2-arm-linux-gnueabihf.tar.gz
+9a9753f1e52382ea8c613e834290604e6fa1434e8b0741c12cd2da4c7ca7010f  bitcoin-0.14.2-i686-pc-linux-gnu-debug.tar.gz
+178f8553998ebb2cd2c03ab445d3d7642cd63c50e88a459a005b23f61723d185  bitcoin-0.14.2-i686-pc-linux-gnu.tar.gz
+7d1f9f2933ab3842055bebc0c6c78523867f8fc073c5353c0bd493ae83ca8267  bitcoin-0.14.2-osx64.tar.gz
+3662e3bce36e04b78fc00b0d4133df92a09867c0f052c1bb4cfca61786707b01  bitcoin-0.14.2-osx-unsigned.dmg
+97eb6ee0832a211bf74855b04b2883b867bdd8757716a57a2fd880ac199d1b04  bitcoin-0.14.2-osx-unsigned.tar.gz
+09d599b255b58d17c68528cd3d325e385cf70d16b6517d6dceb023ba827d7708  bitcoin-0.14.2.tar.gz
+5cea6c47ab15a835d4d763eb6e28e90125050854ba8b1dc1ac8640d76af8df9b  bitcoin-0.14.2-win32-debug.zip
+975b1e1e8a600475eed58407607e9ae916247821d3b004efdf0a1bc059ef4f38  bitcoin-0.14.2-win32-setup-unsigned.exe
+188a5acc3cd52e68f11162d81da3b2aafcf08aa44029e60db9422b99489cce0e  bitcoin-0.14.2-win32.zip
+871771d17441c25c7ee95decb1c73f30a898631c02b96d2d9954abb53f12877e  bitcoin-0.14.2-win64-debug.zip
+f7032dd3964e96e9846b3c0e61685e8dfaa520c0560f71abee59e18fcc675b6f  bitcoin-0.14.2-win64-setup-unsigned.exe
+c6922f07bd88a0ab52d40d5d36b83a540ac33633e7a37c1450389cb0fd9bcee4  bitcoin-0.14.2-win64.zip
+260304f4afc1391b5b5a4234cd577634a9987a0b0d35295123def2d49c8c66cf  bitcoin-0.14.2-win-unsigned.tar.gz
+c836933343d3395a70c70f9d7614c70e48b1e4a5f7ab72eb9ff8d7adaf04ba8f  bitcoin-0.14.2-x86_64-linux-gnu-debug.tar.gz
+23fbd4aeed885c41d287cec8529ae8f16a7af1ff7571ba63aa6e5a7e520108b7  bitcoin-0.14.2-x86_64-linux-gnu.tar.gz
+-----BEGIN BITCOIN SIGNATURE-----
+
+
+HIv/oPZxlYOCtGrQrXWswz8R22UG6DvW0pUwnwSWfp+7LAWawPILmQj43jwgNfXE
+ci7PgaMd/Xf2oJUi52OZWiI=
+=wRb/
+-----END BITCOIN SIGNATURE-----
+</code></pre>
+
+<p>Thanks to Redditors for pointing out that signatures should accompany our binary downloads,
+and should be replicated in various places to prevent tampering.</p>
+
+<p>I intend to keep on publishing my signatures here (although I may switch to a different signing key).</p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Thu 13 Jul 2017 11:00:00 CEST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/ABC.html" rel="tag">ABC</a>
+
+<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/bitcoin_abc/20170713-bitcoin-abc-0001-1.html">freetrader&#x27;s ABC dispatches - volume 1</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<h1>Signatures of first Bitcoin ABC binary release (1 July 2017)</h1>
+
+<p>Linux, OSX and Windows Binaries for the initial 0.14.1 version have been built by deadalnix and myself using gitian (reproducible builds).
+I confirm that the checksums of my build products matched the ones he obtained.
+Below is a signed copy of my checksums:</p>
+
+<p>The binaries can be obtained at <a href="https://download.bitcoinabc.org/0.14.1/">https://download.bitcoinabc.org/0.14.1/</a> .</p>
+
+<pre><code>-----BEGIN BITCOIN SIGNED MESSAGE-----
+Comment: Signed by Bitcoin Armory v0.93.2
+
+79be8529ce0101e2fae0166e7393c6aa65f7aab90c8d4717b686a78380df3e86  bitcoin-0.14.1-aarch64-linux-gnu-debug.tar.gz
+6790918f08498329840797377e6d651c9d0f65d605949e44b6d838266c664e00  bitcoin-0.14.1-aarch64-linux-gnu.tar.gz
+cf2acfeef0d420ef4d669c61cf38bbde1743dc0b2ebd6ac7fce3becdad74707d  bitcoin-0.14.1-arm-linux-gnueabihf-debug.tar.gz
+376ad362158c699888a6b6f0454a89ebb3d90cfd4cedafe8c82b166bfa25957f  bitcoin-0.14.1-arm-linux-gnueabihf.tar.gz
+b8addcb9999c66eeac03d526b479400ad7a2772014b8fcdcb3b44e624d3f4e5d  bitcoin-0.14.1-i686-pc-linux-gnu-debug.tar.gz
+3186eee56bf64744e0ad087421fccf45c1cf055f70e3be54508d02ea2b50ea75  bitcoin-0.14.1-i686-pc-linux-gnu.tar.gz
+2f4d12cef272d55fcd615799ba144b93bec9e2c08dfd30b79bd1af05a3b0a1bd  bitcoin-0.14.1-osx64.tar.gz
+7d4eda15720bf096efb846a5865637a4c1632c4b110ab4c55970dd89bd267476  bitcoin-0.14.1-osx-unsigned.dmg
+43af408ed42edb3b6f5706c6d9e931e0a1cbfb02fc247d058cdf4ddc6d0312dc  bitcoin-0.14.1-osx-unsigned.tar.gz
+1ec5889f7f5fc0f66375251c2e991e82dce50a878bd8486c772d3a0ff2879c4f  bitcoin-0.14.1-win32-debug.zip
+2ffd922716e2ffceee375b921d97cb5bab9a5f878f0307cb8d9993e39c9c0768  bitcoin-0.14.1-win32-setup-unsigned.exe
+fec7a8e6df9f23642582aaddfa5fb5f92d4ce3ecb7210faa2e87129d89b7c980  bitcoin-0.14.1-win32.zip
+9b286ff3ea14f50150153fccdd872da3acd422597051e61de2a0694bf485c7c6  bitcoin-0.14.1-win64-debug.zip
+a028e054457fe8813551f03ed8cf0f7d9e545ee63946cb6997c38e0a9964a018  bitcoin-0.14.1-win64-setup-unsigned.exe
+7511c83c322231d262d853bd5eaeef2f38f30340b11e7c956d50e3e08e30ae23  bitcoin-0.14.1-win64.zip
+8a543285d3b6059de42d0d0cdd9c6dcb14b0ff3c1833e8cfc5fb1ba9a61ab3d3  bitcoin-0.14.1-win-unsigned.tar.gz
+9cefef14e3064f9e108b2ad7f19427256d124b6bcbb308619f0d401b17acd963  bitcoin-0.14.1-x86_64-linux-gnu-debug.tar.gz
+5e515896efbc2d6f639330146be61fea1ca62913648108d47190c987e539c7af  bitcoin-0.14.1-x86_64-linux-gnu.tar.gz
+cc6043a53ad4cad5b14a7c9aff3973e5036232da456b572a948d083531069d36  src/bitcoin-0.14.1.tar.gz
+
+-----BEGIN BITCOIN SIGNATURE-----
+
+
+G3X6BwOjDfo603eICsx+ovubAmAyto1lH3SVr3YeKjHRfiYN0j+QqBiA0af5BRZK
+Howxon69EQ994nVq/LyifQI=
+=7GT/
+-----END BITCOIN SIGNATURE-----
+</code></pre>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Thu 13 Jul 2017 11:00:00 CEST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/ABC.html" rel="tag">ABC</a>
+
+<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -690,7 +855,7 @@ I had not really thought much about minority forks which want to keep the diffic
 
 <h2>References</h2>
 
-<p>[1] Image of Asics cap: public domain (CC0) by freetrader <a href="mailto:freetrader@tuta.io">&#x66;&#x72;&#101;&#101;&#116;&#x72;&#97;&#100;&#101;&#114;&#64;&#x74;&#x75;&#116;&#97;&#46;&#105;&#111;</a> <br></p>
+<p>[1] Image of Asics cap: public domain (CC0) by freetrader <a href="mailto:freetrader@tuta.io">&#x66;&#114;&#x65;&#x65;&#116;&#114;&#x61;&#100;&#x65;&#114;&#x40;&#116;&#x75;&#x74;&#97;&#46;&#x69;&#x6f;</a> <br></p>
 
 </div>
 
@@ -865,347 +1030,6 @@ It does however pass the existing test suite.</p>
 
 <span class="pagedate">
 Posted <span class="date">Sun 21 May 2017 23:50:00 CEST</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
-
-<a href="./tags/musings.html" rel="tag">musings</a>
-
-<a href="./tags/weekly.html" rel="tag">weekly</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/weekly_musings/20170514-weekly-musing-006-1.html">freetrader&#x27;s weekly musings - volume 6</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<h1>Weekly musing #6 - And up again...</h1>
-
-<table class="img"><caption>Roly Poly Toys</caption><tr><td><a href="./images/rolypolytoys-grey.png"><img src="./images/rolypolytoys-grey.png" width="553" height="229" alt="Roly Poly Toys" class="img" /></a></td></tr></table>
-
-
-<h2>Bitcoin Unlimited</h2>
-
-<h3>v1.0.2.0 release (fix for 2nd memory exhaustion incident)</h3>
-
-<p>Another release (1.0.2.0), fixing another Xthin exploitable bug similar to the previous memory exhaustion issue.
-Again, the problem and a workaround were quickly identified. Having <code>use-thinblocks=0</code> disables Xthin more effectively since 1.0.1.4 - fortunately that worked and probably protected quite a few nodes. Still, having 1/3 of the BU nodes killed again obviously shakes confidence.</p>
-
-<p>A lot of fixes were brought together for the 1.0.2.0 release, which made it take longer.
-Good things take time, but bad code can waste a lot of time. I guess BU is paying the price for changing p2p protocol code without sufficient review and testing in the early days.
-While some of the easily exploited holes have now been closed, there are some worries remaining, like the risk of someone producing relatively cheap collisions, or the memory limit while reconstructing thinblocks being perhaps a little higher than needed.</p>
-
-<p>Still, my feeling is BU is getting more robust with each attack. However, recovery was a little more protracted with this one, as it tool longer for the official binaries to be released.
-Source code fixes were available in PR form quite early on.</p>
-
-<p>There was however again a percentage of users who probably will not come back to BU because of this incident. Classic seems to have made some small gains (not visible on chart below).</p>
-
-<table class="img"><caption>nodecounter.com recent Bitcoin Unlimited nodes statistics</caption><tr><td><a href="./images/20170514_bu_nodes_nodecounter_recent.png"><img src="./images/20170514_bu_nodes_nodecounter_recent.png" width="1125" height="387" alt="nodecounter.com recent Bitcoin Unlimited nodes statistics" class="img" /></a></td></tr></table>
-
-
-<p>With the aid of a little script from thezerg, I managed to get my BU gitian build working for this release, and was thus able to sign the 1.0.2.0 checksums.
-I think I will need to abandon my gitian build VM though, it seems just to slow compared to others.</p>
-
-<h3>pruning.py problems not local to BU</h3>
-
-<p>After getting such poor pass rates on the pruning test, I executed it on Classic and Core latest builds as well.</p>
-
-<p>On Classic, it went into a loop, which I stopped after several hours.</p>
-
-<p>On Core, it timed out as well. I raised <a href="https://github.com/bitcoin/bitcoin/issues/10393">Github issue 10393</a> which has yet to receive a response.</p>
-
-<h3>Miscellaneous</h3>
-
-<p>I opened an issue for the <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/557">overly verbose keypool traces</a> in the log file.
-These have been bugging myself and others - they often lead to questions whether something is wrong.
-I have not decided which debug flag to use for them.</p>
-
-<h3>BUIPs</h3>
-
-<p>There are some interesting coordination-related proposals which have been raised on the forum (in Draft BUIP form):</p>
-
-<ul>
-<li>Peter Rizun's <a href="https://bitco.in/forum/threads/buip055-increase-the-block-size-limit-at-a-fixed-block-height.2103/">BUIP055</a></li>
-<li>Tomas van der Wansem's <a href="https://bitco.in/forum/threads/increase-the-block-size-limit-triggered-by-a-support-threshold.2111/">threshold-based BUIP</a> (no number yet)</li>
-<li>Sancho Panza's <a href="https://bitco.in/forum/threads/buipxxx-add-bip135-support-bip9.2114/">BUIP to add BIP135</a></li>
-</ul>
-
-
-<p>I'm looking forward to the upcoming voting - I will raise BUIP038 too since it did not get quorum the time before last, and I think that it should be put to the vote now that membership and participation have increased. I am undecided on whether to make it into a new BUIP with a toggle to enable the sticky gate instead of just removing it as BUIP038 proposed. If anyone has strong feelings about that, I'd like to hear about them!</p>
-
-<h2>Bitcoin-ABC</h2>
-
-<p>The failing regression tests have been sorted out - ABC is now passing its Travis tests.</p>
-
-<ul>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/1">Removed SegWit regression tests</a></li>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/2">Fixed p2p-compactblocks.py</a></li>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/4">Fixed wallet transaction check which failed lots of regtests</a></li>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/5">Removed leftover bumpfee code</a></li>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/11">Removed replace-by-fee.py</a></li>
-<li><a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/15">Fixed maxuploadtarget.py</a></li>
-</ul>
-
-
-<p>While looking at fixing the failing nulldummy.py test, I <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/pull/6">considered</a> removing the NULLDUMMY support entirely.
-It is a soft-fork which is actually functionally separate from SegWit, but deployed on the same bit!
-This is a bit unorthodox, but on the mailing list Johnson Lau defended this with the reason that it would reduce testing effort for SegWit not to handle it as an independent soft-fork.</p>
-
-<p>After raising <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/issues/3">an issue</a> to decide on the right course of action, I discussed it with deadalnix, who was in favor of retaining it for now.</p>
-
-<p>I have created an ABC branch (on my personal fork repo) where I have executed a more aggressive removal of this currently unused feature and its test. I will be cherry-picking from the mainline ABC repo, trying to keep it clean of features which are not yet present or needed in today's Bitcoin Core, and focusing only on the basic blocksize scaling part.</p>
-
-<p>As part of resolving the failing tests, I did 10 runs of the '-extended' regression test suite, excluding the 'pruning' test which takes too long.
-The results were interesting - not all tests are passing reliably on my (old) system.
-Times are in seconds, and only the times of passes are counted for mean/stdev statistics.</p>
-
-<table class="img"><caption>Extended regression test status over 10 runs on Bitcoin-ABC</caption><tr><td><a href="./images/20170513_abc-initial-test-overview.png"><img src="./images/20170513_abc-initial-test-overview.png" width="731" height="1377" alt="Extended regression test status over 10 runs on Bitcoin-ABC" class="img" /></a></td></tr></table>
-
-
-<p>The next step will be adding a true Adjustable Blocksize Cap. This will be where the fun really starts!</p>
-
-<p>If anyone is interested in assisting with the ABC effort, contact us or submit PRs / issues directly on Github!</p>
-
-<h2>parity-unlimited</h2>
-
-<p>There is some more developer interest for giving parity support for bigger blocks.  Personally, I did not find time to continue test experiments with parity-bitcoin or parity-unlimited, but it's been nice to chat with other people on the BU slack about it.</p>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Sun 14 May 2017 23:00:00 CEST</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
-
-<a href="./tags/musings.html" rel="tag">musings</a>
-
-<a href="./tags/weekly.html" rel="tag">weekly</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/weekly_musings/20170507-weekly-musing-005-1.html">freetrader&#x27;s weekly musings - volume 5</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<h1>Weekly musing #5 - Testing, Testing, ...</h1>
-
-<table class="img"><caption>Fixing problems</caption><tr><td><a href="./images/fixing_problems.png"><img src="./images/fixing_problems.png" width="312" height="307" alt="Fixing problems" class="img" /></a></td></tr></table>
-
-
-<h2>Bitcoin Unlimited</h2>
-
-<p>I've been testing and raising issues on Github for some failing
-tests that we are troubleshooting. (I guess it <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/476">started</a>
-with the failing <code>pruning.py</code>, but we encountered more
-during recent updates meant to close some post-1.0.1.4 gaps.</p>
-
-<p>Among them:</p>
-
-<ul>
-<li><a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/513">p2p-acceptblock</a></li>
-<li><a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/537">abandonconflict</a></li>
-</ul>
-
-
-<p>I tested another one with sickpig (<a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/issues/518">validateblocktemplate</a>).</p>
-
-<p>Most if not all these test failures were apparently random failures,
-some involving infinite loops.</p>
-
-<p>Random failures can slip through Travis CI undetected, only to surface later.
-This seems to have already happened, based on subsequent investigations.</p>
-
-<p>This is a prime reason to run the <em>full</em> test suite (including extended
-tests) multiple times a day, on as many platforms as possible.
-Fortunately BU's Travis account has been upgraded to a paid one,
-at least this means the project will be able to run more tests.</p>
-
-<h3>Running tests repeatedly</h3>
-
-<p>Our parallel testing wrapper for unit tests has an <code>-r</code> option for
-repeating tests, but our regression test wrapper (rpc-tests.py) currently
-does not. This is something I'd like to enhance, it is frequently needed
-because a lot of failures are not deterministic.</p>
-
-<p>One can of course always write a little shell script.
-I used this one which runs the test repeatedly using a timeout per run,
-logs failures to a temporary file and prints out the total number of
-failures at the bottom.</p>
-
-<pre><code>#!/bin/bash
-TIMEOUT=100 # seconds, need to adapt to specific test
-TEST_COMMAND="qa/pull-tester/rpc-tests.py abandonconflict"
-for i in {1..100}
-do 
-   echo "`date`: start iteration $i"
-   timeout --foreground $TIMEOUT $TEST_COMMAND || echo "this is a failure"
-   killall bitcoind
-done | tee /tmp/testfailures.log | grep -c "this is a failure"
-</code></pre>
-
-<p>Messy, but it works.</p>
-
-<p>Hopefully, an improved rpc-tests.py will do this for us in future,
-and spit out more statistics e.g. average time per run and maybe the
-standard deviation of that.</p>
-
-<h3>Bisections</h3>
-
-<p>Once you know a test is failing randomly on a certain revision, you
-need to find out what introduced the problem.</p>
-
-<p>If you cannot tell easily, then you can usually get some idea by testing
-backwards from a known bad commit (usually the head of the branch you are working off)
-to find the first commit that broke the test, and see what it changed.</p>
-
-<p>If the source of the problem possibly lies back a long time, going back
-over each revision takes a long time. You can try doing a <a href="https://wiki.ubuntu.com/Kernel/KernelBisection">bisection</a>
-which is much quicker (but you need to know a working revision sometime in the past).</p>
-
-<p>I submitted a PR for a helper script that can be used in conjunction
-with <code>git bisect</code> to run a bisection on a test that is failing
-randomly and/or getting stuck in a loop.</p>
-
-<p>I committed the <a href="https://github.com/ftrader/bitcoin-misc-contrib/blob/master/bisection-tools/bisect_probabilistic_with_timeout.sh">original version</a>
-of this script in my personal repo under GPLv3, but I submitted it
-in improved form in <a href="https://github.com/BitcoinUnlimited/BitcoinUnlimited/pull/532">PR532</a>.
-That PR introduces an additional documentation file with some tips in <code>doc/bug-triage.md</code>.</p>
-
-<p>The script has so far proved quite useful, but it does have limitations,
-for example when the build breaks in some past commits. Be sure to read
-the file header of the script and the mentioned document if you plan to
-use it.</p>
-
-<p>The main benefit is that this script can triage randomly failing and looping tests.
-It can be used in "one-shot" mode without running a bisection, of course,
-just to either</p>
-
-<ul>
-<li>run a test command repeatedly (set a huge timeout if you know the test does not time out)</li>
-<li>catch a test which times out (although you can also use the timeout(1) command in Linux)</li>
-</ul>
-
-
-<h2>parity-bitcoin</h2>
-
-<p>I've never dabbled in Rust before, so I was surprised that it was not too
-difficult to get to a running version of <a href="https://github.com/paritytech/parity-bitcoin">parity-bitcoin</a>.
-Fortunately I did have a little help though from Christian Nyumbayire
-(Chritchens on the forum and Reddit). He is working on an adaptation of
-Parity that he called 'parity-unlimited' and is currently taking shape.
-Initial steps will hopefully demonstrate that parity can handle a hardcoded
-bigger block size (e.g. 2MB) well.</p>
-
-<p>Here is his announcement thread, in which he also left valuable information
-on how to install Parity (some information on installing dependencies got me
-past initial hurdles).</p>
-
-<p>https://bitco.in/forum/threads/multi-implementation-client-development.2092/</p>
-
-<p>I was able to successfully run the unmodified parity-bitcoin unit test suite (one
-test was ignored but all others passed).
-Unfortunately, my initial attempt to run the regression test suite failed -
-it got stuck with bitcoinj receiving an empty block header.</p>
-
-<p>Whether this was a problem with my build (I did not build the 'release' build)
-or still a bug in the regression tests is something that future trials will
-show.</p>
-
-<p>It is already promising that it got very far in the regression tests.
-Hopefully it can soon become a big-block capable neighbor of Bitcoin Unlimited
-on the actual network.</p>
-
-<h2>BTCfork</h2>
-
-<p>I managed to resolve the little issues that were troubling Travis, and
-so complete the merge of recent upstream BU 'dev' into <a href="https://github.com/BTCfork/hardfork_prototype_1_mvf-bu">MVF-BU</a>.</p>
-
-<p>Two long running tests (excessive.py and parallel.py) had to be moved to the
-'extended' set of tests which are not automatically run.
-This is because BTCfork still operates on a free Travis instance with a
-cutoff time of 50 minutes.</p>
-
-<p>The fork code introduces some long-running tests of its own, and these have
-to be tested more frequently. However, when touching code that modifies
-block handling, it will be necessary to manually run the relocated tests,
-and occasionally swap them into Travis for testing across different
-build platforms (which I don't have).</p>
-
-<p>I will be starting work on a checkpoint feature next, but more details
-about that once it is ready.</p>
-
-<h2>Bitcoin-ABC</h2>
-
-<p>BU contributor deadalnix created a repository of a Bitcoin Core 0.14 client
-which has the SegWit and RBF removed.</p>
-
-<p>This can serve as a basis for future Adjustable Blocksize Cap modification,
-hence he called it: <a href="https://github.com/Bitcoin-ABC/bitcoin-abc">Bitcoin-ABC</a>!</p>
-
-<p>I have started assisting on this effort by helping to resolve some failing
-regression tests.  Most of the issues appear due to incomplete removal
-of SegWit test code, and should not take too long to clean up.</p>
-
-<p>It would be exciting to have a recent Core with a configurable limit!
-Any volunteers are more than welcome to assist this effort.</p>
-
-<h4>Footnotes</h4>
-
-<p><a name="footnote1">[1]</a> Fixings Problems comic thanks to https://xkcd.com/1739/ (CC BY-NC 2.5)</p>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Sun 07 May 2017 22:22:00 CEST</span>
 </span>
 
 
