@@ -1,0 +1,202 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s ABC dispatches - volume 3</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="../weekly_musings/20170716-weekly-musing-015-1.html" title="freetrader's weekly musings - volume 15" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">bitcoin abc</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s ABC dispatches - volume 3
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="../weekly_musings/20170716-weekly-musing-015-1.html">freetrader's weekly musings - volume 15</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Signatures of third Bitcoin ABC binary release (17 July 2017)</h1>
+
+<p>Linux, OSX and Windows Binaries for the 0.14.3 version have been built by deadalnix, sickpig and myself using gitian (reproducible builds).</p>
+
+<p>Tom Zander of Bitcoin Classic independently confirmed the Linux and Windows build using his own gitian.</p>
+
+<p>The binaries can be downloaded from <a href="https://download.bitcoinabc.org/0.14.3/">https://download.bitcoinabc.org/0.14.3/</a> .</p>
+
+<pre><code>-----BEGIN BITCOIN SIGNED MESSAGE-----
+Comment: Signed by Bitcoin Armory v0.93.2
+
+I confirm that these are the correct SHA256 checksums of the Bitcoin ABC 0.14.3 release
+as per my own gitian build (and confirmed by other builders).
+
+You should be able to obtain these binaries at
+
+     https://download.bitcoinabc.org/0.14.3/
+
+freetrader (1Libre7MGkCXr7pUAEbwihCR9X4quYAyQ4)
+
+c14ffbb7070fb98ecd96de1c32211df9120364de501198040ea6b8771dcdb2f9  bitcoin-0.14.3-aarch64-linux-gnu-debug.tar.gz
+761a03aa768097995c332a4dcb2274fa8a5bff242a4de6d822f7aa4b0aa0e92c  bitcoin-0.14.3-aarch64-linux-gnu.tar.gz
+a7d9fc28a79a39541cb6ee54e31ddd114f656140d45df8b2ecffeb27fa63f8ad  bitcoin-0.14.3-arm-linux-gnueabihf-debug.tar.gz
+f53423204429ef1e0ad46e2ebfec4b3788804431ce91fb02fae70b1fd871b51d  bitcoin-0.14.3-arm-linux-gnueabihf.tar.gz
+40db57341cf93ef742882c59c3481e12543e9edd195568874ffcdf3b88c5039e  bitcoin-0.14.3-i686-pc-linux-gnu-debug.tar.gz
+c168560b23f6f5b0ae87ee0d03bc62bbb0b86f22482070f4b79fd8046a0a413f  bitcoin-0.14.3-i686-pc-linux-gnu.tar.gz
+bbef98d304abb967a802971d907db16fd443abf0a6013ab910880d19e65e3671  bitcoin-0.14.3-osx64.tar.gz
+df54afffef0e2151255f42c95ea8f5cac5939dc21000727b35b9aad8aea4d44d  bitcoin-0.14.3-osx-unsigned.dmg
+57bc3f0c237038a1d5b4f5c5702fe91993371583f9c88cd9dfb5c043862d4359  bitcoin-0.14.3-osx-unsigned.tar.gz
+f22d9e625c21688803ee73b7f6fa67a7e567079443175b1f025bfa97681a6b5f  bitcoin-0.14.3-win32-debug.zip
+c86c821df346667da34f4b8509d8f9e11772c6870b9015590870232919d01076  bitcoin-0.14.3-win32-setup-unsigned.exe
+e9050627ac45c651a481fa199419a2c7ab0047f440296805efd6729047f566d3  bitcoin-0.14.3-win32.zip
+0d0ee37b5aef0c8fe026c72e75740d3ebf09bc49cd1c20fde0fe81db6156a77c  bitcoin-0.14.3-win64-debug.zip
+4f3a0480ad417c579dc3b96ab57a46213cae2f7509886fe61bc931bb887c2882  bitcoin-0.14.3-win64-setup-unsigned.exe
+21252c740da6d09b14228dc6038d9721647ca289725281987c2e52d5074cc4a2  bitcoin-0.14.3-win64.zip
+285791d616538a0f9e9a3c0123da04b4c422d6b356facec84c33dd40a6d795c2  bitcoin-0.14.3-win-unsigned.tar.gz
+02acc6d74833f30bea39a64fea871c42a3896033a5dd94d1b761cc8222eb6cb6  bitcoin-0.14.3-x86_64-linux-gnu-debug.tar.gz
+403f6e15297414fc29c1b53da1994aa69741fa86afb6ab452fed3c3f14288bf6  bitcoin-0.14.3-x86_64-linux-gnu.tar.gz
+5e8bca0ea5d3c3c0d47ef889d5efd528b8d63908dad8ea8de3f714c416b7687e  src/bitcoin-0.14.3.tar.gz
+-----BEGIN BITCOIN SIGNATURE-----
+
+
+HMPtffAVx3tV6TqHe0d7xXMvqlaSAvk3byrE7XcfwIRxQ9WRNeHQY0mvq6NBBGvy
+okAwhiahdq1QmWy9ORQhc28=
+=gKUR
+-----END BITCOIN SIGNATURE-----
+</code></pre>
+
+<p>Thanks to all who made this release possible and are supporting Bitcoin ABC.</p>
+
+<h2>Further links:</h2>
+
+<p>Official ABC website: <a href="https://www.bitcoinabc.org/">https://www.bitcoinabc.org/</a></p>
+
+<p>Official ABC Twitter: <a href="https://twitter.com/Bitcoin_ABC">https://twitter.com/Bitcoin_ABC</a></p>
+
+<p>Subreddit: <a href="https://www.reddit.com/r/BitcoinABC/">https://www.reddit.com/r/BitcoinABC/</a></p>
+
+<p>Support slack (currently at BTCfork): self-invite via <a href="https://btcforks.signup.team/">https://btcforks.signup.team/</a></p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="../weekly_musings/20170716-weekly-musing-015-1.html">freetrader's weekly musings - volume 15</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/ABC.html" rel="tag">ABC</a>
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Mon 17 Jul 2017 11:15:56 CEST</span>
+<!-- Created <span class="date">Mon 17 Jul 2017 11:15:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
