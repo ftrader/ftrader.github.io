@@ -100,10 +100,10 @@ freetrader's blog
         <td class="month-calendar-day-nolink Saturday">22</td>
     </tr>
     <tr>
-        <td class="month-calendar-day-this-day Sunday"><a href="./posts/weekly_musings/20170723-weekly-musing-016-1.html" title="20170723-weekly-musing-016-1">23</a></td>
-        <td class="month-calendar-day-future Monday">24</td>
-        <td class="month-calendar-day-nolink Tuesday">25</td>
-        <td class="month-calendar-day-nolink Wednesday">26</td>
+        <td class="month-calendar-day-link Sunday"><a href="./posts/weekly_musings/20170723-weekly-musing-016-1.html" title="20170723-weekly-musing-016-1">23</a></td>
+        <td class="month-calendar-day-nolink Monday">24</td>
+        <td class="month-calendar-day-this-day Tuesday">25</td>
+        <td class="month-calendar-day-link Wednesday"><a href="./posts/bitcoin_abc/20170726-bitcoin-abc-0005-1.html" title="20170726-bitcoin-abc-0005-1">26</a></td>
         <td class="month-calendar-day-nolink Thursday">27</td>
         <td class="month-calendar-day-nolink Friday">28</td>
         <td class="month-calendar-day-nolink Saturday">29</td>
@@ -126,7 +126,7 @@ freetrader's blog
 <p><a href="./tags.html">Tags</a>:</p>
 
 <ul class="list">
-<li><span class="smallestPC"><a href="./tags/ABC.html">ABC</a></span>
+<li><span class="smallPC"><a href="./tags/ABC.html">ABC</a></span>
 </li><li><span class="smallestPC"><a href="./tags/BTCfork.html">BTCfork</a></span>
 </li><li><span class="biggestPC"><a href="./tags/Bitcoin.html">Bitcoin</a></span>
 </li><li><span class="smallestPC"><a href="./tags/HFP0.html">HFP0</a></span>
@@ -149,6 +149,106 @@ freetrader's blog
 
 <div  class="feedlink">
 
+
+</div>
+<div class="inlinepage">
+
+<div class="inlineheader">
+
+<span class="header">
+
+<a href="./posts/bitcoin_abc/20170726-bitcoin-abc-0005-1.html">freetrader&#x27;s ABC dispatches - volume 5</a>
+
+</span>
+</div>
+
+<div class="inlinecontent">
+<h1>Signatures of fifth Bitcoin ABC binary release (26 July 2017)</h1>
+
+<p>Linux, OSX and Windows Binaries for the 0.14.5 version have been built by myself and others using gitian (reproducible builds).</p>
+
+<p>The binaries can be downloaded from <a href="https://download.bitcoinabc.org/0.14.5/">https://download.bitcoinabc.org/0.14.5/</a> .</p>
+
+<pre><code>-----BEGIN BITCOIN SIGNED MESSAGE-----
+Comment: Signed by Bitcoin Armory v0.93.2
+
+I confirm that these are the correct SHA256 checksums of the Bitcoin ABC 0.14.5 release
+as per my own gitian build (and confirmed by other builders).
+
+You should be able to obtain these binaries at
+
+    https://download.bitcoinabc.org/0.14.5/
+
+freetrader (1Libre7MGkCXr7pUAEbwihCR9X4quYAyQ4)
+
+c19018c77b9cdefbe3172089b3d53c5de4a09e72626e97dc67c249a8b1778486  bitcoin-0.14.5-aarch64-linux-gnu-debug.tar.gz
+46b1ed6209ad7cbfe91100421cadb2b365196f5c6157f3b6a3a28315f5041a98  bitcoin-0.14.5-aarch64-linux-gnu.tar.gz
+1a350b63847fbe7bcb90fc29d37056bc932d6fc628a3d621f19145affdfeb642  bitcoin-0.14.5-arm-linux-gnueabihf-debug.tar.gz
+9f2808b5199dda5ae065015a13497dda5ea44c6704464372ccc1487479c4a1ff  bitcoin-0.14.5-arm-linux-gnueabihf.tar.gz
+2403cb53314d3556c868d752f44edd0553ce94d6db3b3ce921ab20326a1bdca4  bitcoin-0.14.5-i686-pc-linux-gnu-debug.tar.gz
+07a37c93ee9f84e14687b93238d3392ffec244c51007aa391886196e320ab59f  bitcoin-0.14.5-i686-pc-linux-gnu.tar.gz
+35493d8403e2a2279bb8e1f5871da4989aa56847c44d202f5d7c56d0d2442d59  bitcoin-0.14.5-osx64.tar.gz
+fcc31146ee19986f3442b3b97997812dbb3d0c45258c37827b7ec95a38bac156  bitcoin-0.14.5-osx-unsigned.dmg
+a628ef7c5983053f605625a092f2d5a53078a084edfe8e52c6713bd2b70faba5  bitcoin-0.14.5-osx-unsigned.tar.gz
+b9e43b5923a2d7f450ae9a8e468a9a8313a221edc8d106fd5a9735c07a0b2fab  bitcoin-0.14.5-win32-debug.zip
+2357d376a2bff2f9d22de7035837c55484a13c5ccdca976106654ffa6746af6d  bitcoin-0.14.5-win32-setup-unsigned.exe
+273adf5060a431831aa9a4c321f93b0ccc0563e36a1e51e0a5c0328c33a27f3f  bitcoin-0.14.5-win32.zip
+f1bc6d77f943a11e271cc1edce4a0bf893f50e5f379aef0616bfa3a97f52f090  bitcoin-0.14.5-win64-debug.zip
+22e3086cca39b8a0e7e0f3fa7b4c6a56284eae62531f694175e66b8947392e6b  bitcoin-0.14.5-win64-setup-unsigned.exe
+f8162693ae1c6d499d6d5c137e51625fb0daa45594d4d63181c932de0ba25ccf  bitcoin-0.14.5-win64.zip
+6be9734c03b70a95dcc9b1ccf7782125342fd97f88374af632b08b521ce20503  bitcoin-0.14.5-win-unsigned.tar.gz
+13e2b9f9a0453ba8e4534f5ed4aa777dbb1a05e57af2c361f560f2bc0f035de7  bitcoin-0.14.5-x86_64-linux-gnu-debug.tar.gz
+66968be5add0e8de0526a4195e7bb6efedc973b025e793d3e285e897cfdd94fd  bitcoin-0.14.5-x86_64-linux-gnu.tar.gz
+246866f5c4b9ef074cac06181f5aef48caa297ca7836a5980290859e74f2203d  src/bitcoin-0.14.5.tar.gz
+-----BEGIN BITCOIN SIGNATURE-----
+
+
+HKck7hWRGyZ6PSl7r6lleAbRTHn6e6iz0milYQ5oQVPCrVepFGgPINvxeamSrrww
+xuXwVwkmP02oHJlDvPnGhV8=
+=dFVg
+-----END BITCOIN SIGNATURE-----
+</code></pre>
+
+<p>Thanks to all who made this release possible and are supporting Bitcoin ABC.</p>
+
+<h2>Further links:</h2>
+
+<p>Official ABC website: <a href="https://www.bitcoinabc.org/">https://www.bitcoinabc.org/</a></p>
+
+<p>Official ABC Twitter: <a href="https://twitter.com/Bitcoin_ABC">https://twitter.com/Bitcoin_ABC</a></p>
+
+<p>Subreddit: <a href="https://www.reddit.com/r/BitcoinABC/">https://www.reddit.com/r/BitcoinABC/</a></p>
+
+<p>Forum: <a href="https://bitco.in/forum/forums/bitcoin-abc.25/">https://bitco.in/forum/forums/bitcoin-abc.25/</a></p>
+
+<p>Support slack (currently at BTCfork): self-invite via <a href="https://btcforks.signup.team/">https://btcforks.signup.team/</a></p>
+
+</div>
+
+<div class="inlinefooter">
+
+<span class="pagedate">
+Posted <span class="date">Wed 26 Jul 2017 00:00:00 CEST</span>
+</span>
+
+
+<span class="tags">
+Tags:
+
+<a href="./tags/ABC.html" rel="tag">ABC</a>
+
+<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+</span>
+
+
+
+
+
+
+
+
+</div>
 
 </div>
 <div class="inlinepage">
@@ -1061,97 +1161,6 @@ This only seems to happen towards the end of one big-block test at the moment, a
 
 <span class="pagedate">
 Posted <span class="date">Sun 25 Jun 2017 23:55:00 CEST</span>
-</span>
-
-
-<span class="tags">
-Tags:
-
-<a href="./tags/Bitcoin.html" rel="tag">Bitcoin</a>
-
-<a href="./tags/musings.html" rel="tag">musings</a>
-
-<a href="./tags/weekly.html" rel="tag">weekly</a>
-
-</span>
-
-
-
-
-
-
-
-
-</div>
-
-</div>
-<div class="inlinepage">
-
-<div class="inlineheader">
-
-<span class="header">
-
-<a href="./posts/weekly_musings/20170618-weekly-musing-011-1.html">freetrader&#x27;s weekly musings - volume 11</a>
-
-</span>
-</div>
-
-<div class="inlinecontent">
-<h1>Weekly musing #11 - Homework</h1>
-
-<table class="img"><caption>Bitcoin Core learns about an Adjustable Blocksize Cap</caption><tr><td><a href="./images/chalkboard1-abc-small.jpg"><img src="./images/chalkboard1-abc-small.jpg" width="504" height="334" alt="Bitcoin Core learns about an Adjustable Blocksize Cap" class="img" /></a></td></tr></table>
-
-
-<h2>Bitcoin ABC</h2>
-
-<p>Work is progressing towards the Bitcoin ABC implementation.
-Already it was able to digest blocks slightly larger than 8MB on BU's no-limits testnet.
-In regression tests, sizes up to 16MB have not posed a problem.</p>
-
-<p>Scaling Bitcoin Core may not be as simple as adjusting a single constant, but ABC proves it can be done.</p>
-
-<h2>UAHF</h2>
-
-<p>The release of the UAHF contingency plan [3] and the accompanying technical specification [4] marked a decisive answer to the threat posed to Bitcoin's security by BIP-148 (UASF).</p>
-
-<p>ABC adaptations for the counter HF to the upcoming UASF are in an advanced stage and expected to be ready for validation soon.</p>
-
-<h2>Bitcoin Unlimited</h2>
-
-<p>BU is working on a UAHF-compatible specification [5]. It is provisionally called 'BUIP-HF'.
-Development is going to be channeled through the 'buip-hf' branch on my Github repository,
-from where I will feed Pull Requests back to BU.</p>
-
-<p>A <a href="https://github.com/ftrader-bitcoinunlimited/BitcoinUnlimited/blob/buip-hf/doc/buip-hf.md">guidance document</a> has been created for contributing BU developers.</p>
-
-<p>Preparations are also underway for another point release of BU prior to a major release later this year which should bring most of the 'dev' branch changes over to 'release'.</p>
-
-<h2>BTCfork MVF</h2>
-
-<p>I'm considering adapting the SegWit trigger condition of the MVF's to take into account the planned SegWit2x activation conditions (which seem to have swung in favor of BIP-91 now).
-Still to be decided, but my stance is unchanged - in the event of SegWit activating on the main chain, there should be a spin-off to provide a SegWit-free alternative.
-This could be UAHF, but since that is planned to activate some hours after UASF, it could make sense to activate an earlier spin-off at the same time as UASF.</p>
-
-<h2>References</h2>
-
-<p>[1] Image of blackboard derived from https://commons.wikimedia.org/w/index.php?curid=36633029 <br>
-by Raysonho @ Open Grid Scheduler / Grid Engine - own work, CC0</p>
-
-<p>[2] Image of academic with square cap derived from https://commons.wikimedia.org/w/index.php?curid=14939026 <br>
-by Gardner Cotrell Leonard - “Academic Costume.” in A Cyclopedia of Education, edited by Paul Monroe, 17, New York: The Macmillan Company, 1911., Public Domain</p>
-
-<p>[3] <a href="https://blog.bitmain.com/en/uahf-contingency-plan-uasf-bip148/">UAHF: A contingency plan against UASF (BIP148)</a></p>
-
-<p>[4] <a href="https://github.com/Bitcoin-UAHF/spec/uahf-technical-spec.md">UAHF Technical Specification</a></p>
-
-<p>[5] <a href="https://github.com/BitcoinUnlimited/BUIP/blob/master/BUIP-HF/uahf-technical-spec.md">BUIP-HF Technical Specification</a></p>
-
-</div>
-
-<div class="inlinefooter">
-
-<span class="pagedate">
-Posted <span class="date">Sun 18 Jun 2017 23:40:00 CEST</span>
 </span>
 
 
