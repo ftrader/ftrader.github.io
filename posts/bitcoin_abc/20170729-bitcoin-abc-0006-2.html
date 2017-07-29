@@ -5,7 +5,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>freetrader&#x27;s ABC dispatches - volume 6</title>
+<title>freetrader&#x27;s ABC dispatches - volume 6 (take 2)</title>
 
 <link rel="stylesheet" href="../../style.css" type="text/css" />
 
@@ -17,11 +17,9 @@
 
 
 
-<link rel="prev" href="./20170729-bitcoin-abc-0006-2.html" title="freetrader's ABC dispatches - volume 6 (take 2)" />
-
 <link rel="up" href="../../posts.html" title="posts" />
 
-<link rel="next" href="../bitcoin_unlimited/20170728-bitcoin-unlimited-0001-1.html" title="freetrader's BU dispatches - volume 1" />
+<link rel="next" href="./20170729-bitcoin-abc-0006-1.html" title="freetrader's ABC dispatches - volume 6" />
 
 
 </head>
@@ -42,7 +40,7 @@
 
 </span>
 <span class="title">
-freetrader&#x27;s ABC dispatches - volume 6
+freetrader&#x27;s ABC dispatches - volume 6 (take 2)
 
 </span>
 </span>
@@ -57,19 +55,13 @@ freetrader&#x27;s ABC dispatches - volume 6
 <div class="trails">
 <div class="trail">
 
-<span class="trailprev">
-<span class="trailarrow">←</span>
-<a href="./20170729-bitcoin-abc-0006-2.html">freetrader's ABC dispatches - volume 6 (take 2)</a>
-<span class="trailsep">|</span>
-</span>
-
 <span class="trailup">
 <a href="../../posts.html">posts</a>
 </span>
 
 <span class="trailnext">
 <span class="trailsep">|</span>
-<a href="../bitcoin_unlimited/20170728-bitcoin-unlimited-0001-1.html">freetrader's BU dispatches - volume 1</a>
+<a href="./20170729-bitcoin-abc-0006-1.html">freetrader's ABC dispatches - volume 6</a>
 <span class="trailarrow">→</span>
 </span>
 
@@ -85,16 +77,20 @@ freetrader&#x27;s ABC dispatches - volume 6
 <div id="pagebody">
 
 <div id="content">
-<h1>Signatures of sixth Bitcoin ABC binary release (29 July 2017)</h1>
+<h1>Bare signature of sixth Bitcoin ABC binary release (29 July 2017)</h1>
 
-<p>Linux, OSX and Windows Binaries for the 0.14.6 version have been built by deadalnix and myself using gitian (reproducible builds).</p>
+<p>By popular demand, I am providing a "bare" signature instead of the
+clearsign signatures produced by my old Armory (people are having
+trouble verifying these with other clients).</p>
 
-<p>The binaries can be downloaded from <a href="https://download.bitcoinabc.org/0.14.6/">https://download.bitcoinabc.org/0.14.6/</a> .</p>
+<p>The following is the data (paste from "I confirm" until the final
+"src/bitcoin..." line into your client and verify using the signature
+which follows the text. The bare signature should work in any Bitcoin-Qt
+client, such as ABC.</p>
 
-<pre><code>-----BEGIN BITCOIN SIGNED MESSAGE-----
-Comment: Signed by Bitcoin Armory v0.93.2
+<p>Text:</p>
 
-I confirm the following checksums for the Bitcoin ABC 0.14.6 release.
+<pre><code>I confirm the following checksums for the Bitcoin ABC 0.14.6 release.
 
   freetrader (1Libre7MGkCXr7pUAEbwihCR9X4quYAyQ4)
 
@@ -117,13 +113,11 @@ d5721b246ff4189da853cd12d8d66b14496d7e64a6ecbb330423488cfc0e116d  bitcoin-0.14.6
 c45ac452497c0a3dd738b9ef3845314c092bbc4c9b6bffaa9b340ebd945deb64  bitcoin-0.14.6-x86_64-linux-gnu-debug.tar.gz
 9f37b8ec36a37944b016bbbf07340adb8ba644abb897b2d2e0edeb99ccf709c0  bitcoin-0.14.6-x86_64-linux-gnu.tar.gz
 595238e647255265299b0f17dfe0ba37083cf17a926049371da8a4be2a261c59  src/bitcoin-0.14.6.tar.gz
------BEGIN BITCOIN SIGNATURE-----
+</code></pre>
 
+<p>Signature:</p>
 
-HMP1qGgx9iTWDUnGyDe+ierLNI0REA/NgioRj3n6fqPs2Cok+ruk3Zz0YNEZibNd
-NiahwOESZYPJd52oRgEHjTk=
-=uvUp
------END BITCOIN SIGNATURE-----
+<pre><code>HGvCNoqGY8yvIkylnFZ35EgxPRbLMKoRKyeglda3tvLwjeQ/RdFZd4+hfEcKeq2KO4edw7dFv9qvG29ZpZGeb90=
 </code></pre>
 
 <p>Thanks to all who made this release possible and are supporting Bitcoin ABC.</p>
@@ -156,19 +150,13 @@ NiahwOESZYPJd52oRgEHjTk=
 <div class="trails">
 <div class="trail">
 
-<span class="trailprev">
-<span class="trailarrow">←</span>
-<a href="./20170729-bitcoin-abc-0006-2.html">freetrader's ABC dispatches - volume 6 (take 2)</a>
-<span class="trailsep">|</span>
-</span>
-
 <span class="trailup">
 <a href="../../posts.html">posts</a>
 </span>
 
 <span class="trailnext">
 <span class="trailsep">|</span>
-<a href="../bitcoin_unlimited/20170728-bitcoin-unlimited-0001-1.html">freetrader's BU dispatches - volume 1</a>
+<a href="./20170729-bitcoin-abc-0006-1.html">freetrader's ABC dispatches - volume 6</a>
 <span class="trailarrow">→</span>
 </span>
 
@@ -195,8 +183,8 @@ Tags:
 
 
 <div class="pagedate">
-Last edited <span class="date">Sat 29 Jul 2017 04:59:38 CEST</span>
-<!-- Created <span class="date">Sat 29 Jul 2017 05:00:00 CEST</span> -->
+Last edited <span class="date">Sat 29 Jul 2017 19:06:15 CEST</span>
+<!-- Created <span class="date">Sat 29 Jul 2017 19:00:00 CEST</span> -->
 </div>
 
 </div>
