@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+ "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>freetrader&#x27;s weekly musings - volume 22</title>
+
+<link rel="stylesheet" href="../../style.css" type="text/css" />
+
+<link rel="stylesheet" href="../../local.css" type="text/css" />
+
+
+
+
+
+
+
+<link rel="up" href="../../posts.html" title="posts" />
+
+<link rel="next" href="./20170827-weekly-musing-021-1.html" title="freetrader's weekly musings - volume 21" />
+
+
+</head>
+<body>
+
+<div class="page">
+
+<div class="pageheader">
+<div class="header">
+<span>
+<span class="parentlinks">
+
+<a href="../../index.html">freetrader's blog</a>/ 
+
+<a href="../../posts.html">posts</a>/ 
+
+<a href="../../index.html">weekly musings</a>/ 
+
+</span>
+<span class="title">
+freetrader&#x27;s weekly musings - volume 22
+
+</span>
+</span>
+
+</div>
+
+
+
+
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170827-weekly-musing-021-1.html">freetrader's weekly musings - volume 21</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+</div>
+
+
+
+<div id="pagebody">
+
+<div id="content">
+<h1>Weekly musing #22 - Troubleshooting, buildbot</h1>
+
+<h2>Bitcoin ABC</h2>
+
+<p>I found a partial solution to <a href="https://github.com/Bitcoin-ABC/bitcoin-abc/issues/80">ABC issue 80</a>,
+which is a problem of pre-fork transactions showing up with wrong dates after import of private keys from older
+wallets.</p>
+
+<p>Transaction dates are assigned using a selection of heuristics during a re-scan, some of which produce very strange (wrong) results.
+A workaround to some of these problems was described by user 'dooglus' in <a href="https://github.com/bitcoin/bitcoin/issues/6662">Core issue 6662</a>.
+However, it does not solve all problems. I'm looking at the wallet code to familiarize myself with it.</p>
+
+<p>Other small fixes are being made in preparation for next release.</p>
+
+<h2>buildbot</h2>
+
+<p>I've looked at the <a href="https://buildbot.net/">buildbot</a> software, which deadalnix mentioned a few times.</p>
+
+<p>It seems a great fit for ABC's (and the wider Bitcoin Cash clients) testing needs.</p>
+
+<p>We could set up a structure of master servers and people could contribute worker instances on various platforms.</p>
+
+<p>I am in the process of setting up some hosted servers (a build master and worker for starters) which should be able to run builds and perform tests.</p>
+
+<p>Incidentally, the ZCash project is also using buildbot, with Amazon Web Services. We might look at that later on.
+For the beginning I think we can run workers on our own dedicated servers.</p>
+
+<h2>Bitcoin Unlimited</h2>
+
+<p>Bitcoin Unlimited has tagged BUcash v1.1.1.1 , which should be out shortly.
+A great set of changes.</p>
+
+<p>For some reason my OSX gitian build for BU is broken (SSL certificate problems with curl).</p>
+
+</div>
+
+
+
+
+
+</div>
+
+<div id="footer" class="pagefooter">
+
+<div id="pageinfo">
+
+
+<div class="trails">
+<div class="trail">
+
+<span class="trailup">
+<a href="../../posts.html">posts</a>
+</span>
+
+<span class="trailnext">
+<span class="trailsep">|</span>
+<a href="./20170827-weekly-musing-021-1.html">freetrader's weekly musings - volume 21</a>
+<span class="trailarrow">→</span>
+</span>
+
+</div>
+</div>
+
+
+
+
+<div class="tags">
+Tags:
+
+<a href="../../tags/Bitcoin.html" rel="tag">Bitcoin</a>
+
+<a href="../../tags/musings.html" rel="tag">musings</a>
+
+<a href="../../tags/weekly.html" rel="tag">weekly</a>
+
+</div>
+
+
+
+
+
+
+
+
+<div class="pagedate">
+Last edited <span class="date">Sat 02 Sep 2017 18:32:27 CEST</span>
+<!-- Created <span class="date">Sat 02 Sep 2017 18:30:00 CEST</span> -->
+</div>
+
+</div>
+
+
+<!-- from freetrader's blog -->
+</div>
+
+</div>
+
+</body>
+</html>
